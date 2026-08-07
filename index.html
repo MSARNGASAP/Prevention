@@ -3,184 +3,643 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resilience & Resource Go-Bag</title>
+    <title>MSARNG Tactical Go-Bag</title>
     <style>
+        /* Modern Military Dark-Theme & Responsive CSS Variables */
         :root {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --card-bg: #1e1e1e;
-            --accent-red: #d32f2f;
-            --accent-green: #388e3c;
-            --accent-blue: #1976d2;
-            --accent-yellow: #fbc02d;
+            --bg-color: #0f172a; /* Deep dark blue-gray */
+            --card-bg: #1e293b; /* Slightly lighter blue-gray for cards */
+            --accent-green: #4d7c0f; /* Tactical muted green */
+            --accent-green-hover: #3f6212;
+            --emergency-red: #dc2626; /* Warning red */
+            --emergency-red-hover: #b91c1c;
+            --text-primary: #f8fafc; /* Crisp white */
+            --text-secondary: #94a3b8; /* Muted gray text */
+            --border-color: #334155;
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        header {
-            background-color: #000;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #333;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 1.8rem;
-        }
-
-        p.subtitle {
-            margin: 5px 0 0 0;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        .container {
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.5;
             padding: 15px;
-            max-width: 600px;
+            max-width: 480px; /* Locked to mobile width for perfect scaling */
             margin: 0 auto;
         }
 
-        .section-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 20px;
+        header {
+            text-align: center;
+            padding: 20px 10px;
+            border-bottom: 1px solid var(--border-color);
             margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
 
-        .section-title {
-            display: flex;
-            align-items: center;
-            font-size: 1.4rem;
-            margin-top: 0;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
+        header h1 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+            margin-bottom: 5px;
         }
 
-        .icon {
-            margin-right: 10px;
-            font-size: 1.6rem;
+        header p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Immediate Action Banner */
+        .emergency-banner {
+            background-color: rgba(220, 38, 38, 0.15);
+            border: 1px solid var(--emergency-red);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .emergency-banner h2 {
+            font-size: 1.1rem;
+            color: #f87171;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .emergency-buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
         }
 
         .btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 10px;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            border-radius: 6px;
             font-weight: bold;
-            font-size: 1.1rem;
-            box-sizing: border-box;
-            border: 1px solid #444;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            border: none;
         }
 
-        .btn-red { background-color: var(--accent-red); border-color: #b71c1c; }
-        .btn-green { border-left: 5px solid var(--accent-green); }
-        .btn-blue { border-left: 5px solid var(--accent-blue); }
-        .btn-yellow { border-left: 5px solid var(--accent-yellow); }
+        .btn-danger {
+            background-color: var(--emergency-red);
+            color: #ffffff;
+        }
 
-        .coping-skill {
-            background-color: #2a2a2a;
-            padding: 15px;
+        .btn-danger:hover {
+            background-color: var(--emergency-red-hover);
+        }
+
+        .btn-secondary {
+            background-color: #475569;
+            color: #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #334155;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-size: 1.2rem;
+            margin: 25px 0 12px 0;
+            padding-left: 8px;
+            border-left: 4px solid var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Coping Skill Cards */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            color: #f1f5f9;
+            margin-bottom: 8px;
+        }
+
+        .trigger-tag {
+            display: inline-block;
+            background-color: #3b82f6; /* Blue tag */
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        /* Accordion Styling (For Clean MSNG Directory) */
+        .accordion {
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: 0.2s;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion:after {
+            content: '\002B'; /* Plus symbol */
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .active:after {
+            content: "\2212"; /* Minus symbol */
+        }
+
+        .panel {
+            padding: 0 10px;
+            background-color: rgba(30, 41, 59, 0.5);
+            display: none;
+            overflow: hidden;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 0 0 8px 8px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        /* Directory Contact Entries */
+        .contact-entry {
+            padding: 15px 5px;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+        }
+
+        .contact-entry:last-child {
+            border-bottom: none;
+        }
+
+        .contact-name {
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: #f1f5f9;
+        }
+
+        .contact-title {
+            font-size: 0.8rem;
+            color: #38bdf8; /* Soft blue for roles */
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .contact-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
             margin-bottom: 10px;
         }
 
-        .coping-skill h3 {
-            margin-top: 0;
-            margin-bottom: 5px;
-            color: #fff;
+        .contact-actions {
+            display: flex;
+            gap: 10px;
         }
 
-        .coping-skill p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #ccc;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
+        .btn-call, .btn-email {
+            flex: 1;
+            padding: 8px;
+            border-radius: 4px;
             font-size: 0.8rem;
-            color: #777;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-call {
+            background-color: var(--accent-green);
+            color: #ffffff;
+        }
+
+        .btn-email {
+            background-color: #334155;
+            color: #cbd5e1;
+            border: 1px solid #475569;
+        }
+
+        /* Breathing Exercise Animation Tool */
+        .breathing-box-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        .breathing-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--accent-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.85rem;
+            animation: breatheAnimation 16s infinite ease-in-out;
+            box-shadow: 0 0 15px rgba(77, 124, 15, 0.4);
+        }
+
+        @keyframes breatheAnimation {
+            0%, 100% { transform: scale(1); background-color: var(--accent-green); } /* Hold Out (4s) */
+            25% { transform: scale(1.6); background-color: #10b981; } /* Inhale (4s) */
+            50% { transform: scale(1.6); background-color: #059669; } /* Hold In (4s) */
+            75% { transform: scale(1); background-color: #15803d; } /* Exhale (4s) */
+        }
+
+        .breathing-guide-text {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #a7f3d0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Footer and Privacy Disclaimer */
+        footer {
+            margin-top: 40px;
+            padding: 20px 10px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        footer strong {
+            color: #f1f5f9;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Digital Go-Bag</h1>
-        <p class="subtitle">Confidential tools and resources. No tracking, no login.</p>
+        <h1>MSARNG Tactical Go-Bag</h1>
+        <p>100% Anonymous • No Logins • Free Resources</p>
     </header>
 
-    <div class="container">
+    <!-- 🚨 IMMEDIATE CRISIS TRIAGE -->
+    <div class="emergency-banner">
+        <h2>In Distress? Action Now</h2>
+        <p style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 12px;">
+            Immediate, 100% confidential support outside command lines.
+        </p>
+        <div class="emergency-buttons">
+            <a href="tel:988" class="btn btn-danger">Call 988 (Press 1)</a>
+            <a href="sms:741741?body=HOME" class="btn btn-secondary">Text HOME to 741741</a>
+        </div>
+    </div>
+
+    <!-- 🛠️ SITUATIONAL TACTICAL COPING SKILLS -->
+    <h2 class="section-title">Tactical Coping Tools</h2>
+
+    <!-- Box Breathing Card -->
+    <div class="card">
+        <span class="trigger-tag">WHEN TO USE: Acute Panic or Extreme Anger</span>
+        <h3>1. Tactical (Box) Breathing</h3>
+        <p>
+            <strong>Trigger points:</strong> Use this when you feel a racing heart, sudden panic, overwhelming rage, hyperventilation, or right before a confrontation. It physically forces your nervous system to calm down.
+        </p>
+        <p style="font-style: italic; font-size: 0.8rem; margin-bottom: 10px;">
+            Follow the expanding circle below: Inhale (4s), Hold (4s), Exhale (4s), Hold (4s).
+        </p>
         
-        <!-- I Need Help Right Now -->
-        <div class="section-card">
-            <h2 class="section-title"><span class="icon">🚨</span> I Need Help Right Now</h2>
-            <a href="tel:988" class="btn btn-red">Call 988 (Press 1) - Veterans Crisis Line</a>
-            <a href="sms:741741?body=HOME" class="btn btn-red">Text "HOME" to 741741 - Crisis Text Line</a>
+        <div class="breathing-box-container">
+            <div class="breathing-circle" id="breatheText">BREATHE</div>
+            <div class="breathing-guide-text" id="breatheInstruction">Follow the pace to regulate heart rate</div>
         </div>
+    </div>
 
-        <!-- Tactical Coping Skills -->
-        <div class="section-card">
-            <h2 class="section-title"><span class="icon">🛠️</span> Tactical Coping Skills</h2>
-            
-            <div class="coping-skill">
-                <h3>Tactical (Box) Breathing</h3>
-                <p>Inhale for 4 seconds. Hold for 4 seconds. Exhale for 4 seconds. Hold for 4 seconds. Repeat 4 times to lower your heart rate.</p>
-            </div>
+    <!-- 5-4-3-2-1 Grounding Card -->
+    <div class="card">
+        <span class="trigger-tag">WHEN TO USE: Mental Spirals or Flashbacks</span>
+        <h3>2. 5-4-3-2-1 Grounding Method</h3>
+        <p>
+            <strong>Trigger points:</strong> Use this when trapped in anxiety-driven thought spirals, flashbacks, feeling detached from reality, or experiencing intrusive "what-if" thoughts. It pulls your brain back into the physical room.
+        </p>
+        <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1;">
+            Stop and actively identify:<br>
+            👀 <strong>5 things</strong> you can see around you.<br>
+            ✋ <strong>4 things</strong> you can physically touch.<br>
+            👂 <strong>3 things</strong> you can hear right now.<br>
+            👃 <strong>2 things</strong> you can smell.<br>
+            👅 <strong>1 thing</strong> you can taste.
+        </p>
+    </div>
 
-            <div class="coping-skill">
-                <h3>5-4-3-2-1 Grounding</h3>
-                <p>Find: 5 things you see, 4 things you can touch, 3 things you hear, 2 things you smell, 1 thing you taste. Use this to stop a downward spiral.</p>
-            </div>
+    <!-- Control the Controllables Card -->
+    <div class="card">
+        <span class="trigger-tag">WHEN TO USE: Command/Admin Frustration</span>
+        <h3>3. Control the Controllables</h3>
+        <p>
+            <strong>Trigger points:</strong> Use this when overwhelmed by delayed paperwork, sudden unit changes, frustrating leadership decisions, or things out of your immediate hand. 
+        </p>
+        <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1;">
+            Draw a line down a piece of paper. Focus ONLY on column A:<br><br>
+            🟢 <strong>A: What is in MY control:</strong> My effort, my daily physical routine, my reactions to others, how I treat my peers, taking care of my kit.<br><br>
+            🔴 <strong>B: What is OUT of my control:</strong> Command timelines, Guard Bureau decisions, administrative delays, other people's behaviors, the past.
+        </p>
+    </div>
 
-            <div class="coping-skill">
-                <h3>Control the Controllables</h3>
-                <p>Focus only on your actions, your attitude, and your responses right now. Let go of the past and other people's decisions.</p>
+    <!-- Cognitive Reframing Card -->
+    <div class="card">
+        <span class="trigger-tag">WHEN TO USE: "Worst-Case" Catastrophizing</span>
+        <h3>4. Break Catastrophic Thinking</h3>
+        <p>
+            <strong>Trigger points:</strong> Use this when you are convinced a bad situation (like failing an evaluation or a relationship fight) means your entire career or life is instantly over.
+        </p>
+        <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1;">
+            Answer these 3 logic questions directly to reset your brain:<br>
+            1. <em>What is the worst-case scenario?</em> (Let yourself face it)<br>
+            2. <em>What is the absolute best-case scenario?</em> (Usually unrealistic)<br>
+            3. <em>What is the MOST LIKELY scenario?</em> (The realistic middle ground you can prepare for)
+        </p>
+    </div>
+
+    <!-- 🧭 MSNG LOCAL RESOURCE DIRECTORY (ACCORDIONS) -->
+    <h2 class="section-title">MSNG Local Helping Directory</h2>
+
+    <!-- Mental Health & Counseling Accordion -->
+    <button class="accordion">Mental Health & Counseling</button>
+    <div class="panel">
+        <div class="contact-entry">
+            <div class="contact-name">Fameika Thomas, LCSW</div>
+            <div class="contact-title">Director of Psychological Health (DPH)</div>
+            <div class="contact-desc">Offers short-term solution-focused counseling (3-5 sessions), assessments, and secure community referrals.</div>
+            <div class="contact-actions">
+                <a href="tel:6018968480" class="btn-call">Call</a>
+                <a href="mailto:fameika.a.thomas.civ@army.mil" class="btn-email">Email</a>
             </div>
         </div>
-
-        <!-- Off-the-Books Help -->
-        <div class="section-card">
-            <h2 class="section-title"><span class="icon">🛡️</span> "Off-the-Books" Help</h2>
-            <p style="font-size: 0.9rem; margin-top: 0;">100% confidential. No reporting to command.</p>
-            <a href="https://giveanhour.org/" target="_blank" class="btn btn-blue">Give an Hour (Free Therapy)</a>
-            <a href="tel:1-877-927-8387" class="btn btn-blue">Vet Centers Call Center (1-877-WAR-VETS)</a>
-            <div class="coping-skill" style="text-align: center; margin-top: 10px;">
-                <strong>Contact your Unit Chaplain</strong><br>
-                <span style="font-size: 0.85rem;">Chaplains have 100% absolute confidentiality.</span>
+        <div class="contact-entry">
+            <div class="contact-name">Leslie Bensieck</div>
+            <div class="contact-title">Tupelo Behavioral Health Counselor (BH)</div>
+            <div class="contact-desc">Localized behavioral health assessment and support counseling in Northern MS.</div>
+            <div class="contact-actions">
+                <a href="tel:6628914462" class="btn-call">Call</a>
+                <a href="mailto:leslie.c.bensieck.civ@army.mil" class="btn-email">Email</a>
             </div>
         </div>
-
-        <!-- Life Navigators -->
-        <div class="section-card">
-            <h2 class="section-title"><span class="icon">🧭</span> Life Navigators</h2>
-            <p style="font-size: 0.9rem; margin-top: 0;">Tackle the root causes of stress (financial, legal, marital).</p>
-            <a href="tel:800-342-9647" class="btn btn-green">Military OneSource (800-342-9647)</a>
-            <a href="https://www.militaryonesource.mil/financial-legal/" target="_blank" class="btn btn-green">Financial & Legal Assistance</a>
+        <div class="contact-entry">
+            <div class="contact-name">Frenchie Sanford</div>
+            <div class="contact-title">Camp McCain Behavioral Health Counselor (BH)</div>
+            <div class="contact-desc">Localized behavioral health assessment and support counseling around Camp McCain.</div>
+            <div class="contact-actions">
+                <a href="tel:6622940095" class="btn-call">Call</a>
+                <a href="mailto:hiawatha.f.sanford.civ@army.mil" class="btn-email">Email</a>
+            </div>
         </div>
+        <div class="contact-entry">
+            <div class="contact-name">James Coleman</div>
+            <div class="contact-title">Camp Shelby Behavioral Health Counselor (BH)</div>
+            <div class="contact-desc">Localized behavioral health assessment and support counseling around Camp Shelby.</div>
+            <div class="contact-actions">
+                <a href="tel:6018968480" class="btn-call">Call</a>
+                <a href="mailto:james.e.coleman125.civ@army.mil" class="btn-email">Email</a>
+            </div>
+        </div>
+    </div>
 
+    <!-- Confidential Spiritual Support (Chaplains) Accordion -->
+    <button class="accordion">Confidential Chaplain Support</button>
+    <div class="panel">
+        <p style="font-size: 0.78rem; color: #a7f3d0; padding: 10px 5px 0 5px; font-weight: bold;">
+            ⚠️ NOTE: Chaplains hold 100% absolute confidentiality. They do not report to the chain of command.
+        </p>
+        <div class="contact-entry">
+            <div class="contact-name">CH (COL) Cregg Puckett</div>
+            <div class="contact-title">State Chaplain</div>
+            <div class="contact-desc">Confidential counseling, spiritual support regardless of faith background, crisis, and grief care.</div>
+            <div class="contact-actions">
+                <a href="tel:6012011618" class="btn-call">Call</a>
+                <a href="mailto:cregg.m.puckett.mil@army.mil" class="btn-email">Email</a>
+            </div>
+        </div>
+        <div class="contact-entry">
+            <div class="contact-name">CH (LTC) David Morris</div>
+            <div class="contact-title">State Support Chaplain</div>
+            <div class="contact-desc">Relationship/resiliency programs, spiritual support, and Building Strong and Ready Teams (BSRT) programs.</div>
+            <div class="contact-actions">
+                <a href="tel:6013873656" class="btn-call">Call</a>
+                <a href="mailto:david.o.morris15.mil@army.mil" class="btn-email">Email</a>
+            </div>
+        </div>
+        <div class="contact-entry">
+            <div class="contact-name">CH (CPT) Drew Holifield</div>
+            <div class="contact-title">Camp Shelby Support Chaplain</div>
+            <div class="contact-desc">Camp Shelby point of contact for spiritual support, counseling, and BSRT training.</div>
+            <div class="contact-actions">
+                <a href="tel:6013402151" class="btn-call">Call</a>
+                <a href="mailto:drew.m.holifield.mil@army.mil" class="btn-email">Email</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prevention, Risk & Safety Accordion -->
+    <button class="accordion">Prevention, Risk & Safety</button>
+    <div class="panel">
+        <div class="contact-entry">
+            <div class="contact-name">COL Steven Cochran</div>
+            <div class="contact-title">Integrated Primary Prevention Officer</div>
+            <div class="contact-desc">Spearheads proactive command climate efforts to address risk factors and prevent harmful behaviors.</div>
+            <div class="contact-actions">
+                <a href="tel:6017209763" class="btn-call">Call</a>
+                <a href="mailto:steven.b.cochran.mil@army.mil" class="btn-email">Email</a>
+            </div>
+        </div>
+        <div class="contact-entry">
+            <div class="contact-name">1SG James Huffman</div>
+            <div class="contact-title">Integrated Primary Prevention Specialist</div>
+            <div class="contact-desc">Oversight of risk reduction, Applied Resiliency Training, and ASIST suicide intervention skills.</div>
+            <div class="contact-actions">
+                <a href="tel:6013873665" class="btn-call">Call</a>
+                <a href="mailto:james.w.huffman6.mil@army.mil" class="btn-email">Email</a>
+            </div>
+        </div>
+        <div class="contact-entry">
+            <div class="contact-name">Reagan Sumrall</div>
+            <div class="contact-title">Risk Reduction Coordinator</div>
+            <div class="contact-desc">Monitors high-risk behaviors and coordinates trends mitigation support for commanders.</div>
+            <div class="contact-actions">
+                <a href="tel:6628898213" class="btn-call">Call</a>
+                <a href="mailto:reagan.e.sumrall.ctr@army.mil" class="btn-email">Email</a>
+            </div>
+        </div>
+        <div class="contact-entry">
+            <div class="contact-name">Mackenna Samples</div>
+            <div class="contact-title">Prevention Coordinator (North)</div>
+            <div class="contact-desc">Prevention training, unit briefings, protective factors support, and MyPRIME substance misuse coordination.</div>
+            <div class="contact-actions">
+                <a href="tel:6626887126" class="btn-call">Call</a>
+                <a href="mailto:mackenna.c.sing.ctr@army.mil" class="btn-email">Email</a>
+            </div>
+        </div>
+        <div class="contact-entry">
+            <div class="contact-name">LTC Tiffany Crawford</div>
+            <div class="contact-title">Sexual Assault Prevention & Response (SAPR)</div>
+            <div class="contact-desc">Victim advocacy, crisis response, reporting options education, and ongoing care coordination.</div>
+            <div class="contact-actions">
+                <a href="tel:6018131427" class="btn-call">Call</a>
+                <a href="mailto:tiffany.l.crawford14.mil@army.mil" class="btn-email">Email</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Career, Family & Financial Accordion -->
+    <button class="accordion">Career, Family & Financial</button>
+    <div class="panel">
+        <div class="contact-entry">
+            <div class="contact-name">Ms. Danielle Richards</div>
+            <div class="contact-title">Military & Family Readiness Manager</div>
+            <div class="contact-desc">Deployment/reintegration help and point of contact for the MSNG Military Relief Fund application.</div>
+            <div class="contact-actions">
+                <a href="tel:7695720985" class="btn-call">Call</a>
+                <a href="mailto:danielle.p.richards2.civ@army.mil" class="btn-email">Email</a>
+            </div>
+        </div>
+        <div class="contact-entry">
+            <div class="contact-name">Willie McGriggs</div>
+            <div class="contact-title">Personal Financial Counselor</div>
+            <div class="contact-desc">No-cost confidential financial counseling, budgeting, debt management, and financial planning.</div>
+            <div class="contact-actions">
+                <a href="tel:6013316292" class="btn-call">Call</a>
+                <a href="mailto:pfc.jacksonms@magellanfederal.com" class="btn-email">Email</a>
+            </div>
+        </div>
+        <div class="contact-entry">
+            <div class="contact-name">Michael McGee</div>
+            <div class="contact-title">Work4Warriors Placement Coordinator</div>
+            <div class="contact-desc">No-cost career placement assistance, resume building, job searches, and MS employer networking.</div>
+            <div class="contact-actions">
+                <a href="tel:6627050673" class="btn-call">Call</a>
+                <a href="mailto:Michael.mcgee@wfwms.org" class="btn-email">Email</a>
+            </div>
+        </div>
+        <div class="contact-entry">
+            <div class="contact-name">Tim Abrams</div>
+            <div class="contact-title">Benefits & Transition Coordinator</div>
+            <div class="contact-desc">Education on benefits, VA entitlements, retirement, separation, and civilian life transition guidance.</div>
+            <div class="contact-actions">
+                <a href="tel:6019180975" class="btn-call">Call</a>
+                <a href="mailto:timothy.l.abram.ctr@army.mil" class="btn-email">Email</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Off-The-Books (Outside DoD) Accordion -->
+    <button class="accordion">External Confidential Counselors</button>
+    <div class="panel">
+        <p style="font-size: 0.78rem; color: #a7f3d0; padding: 10px 5px 0 5px; font-weight: bold;">
+            ⚠️ NOTE: These external agencies provide counseling and non-medical treatment separate from command visibility.
+        </p>
+        <div class="contact-entry">
+            <div class="contact-name">Dr. Kimberly Barnes</div>
+            <div class="contact-title">Military & Family Life Counselor (MFLC)</div>
+            <div class="contact-desc">Free, unlimited, highly confidential non-medical counseling for stress, relationships, transitions. Does not report to command.</div>
+            <div class="contact-actions">
+                <a href="tel:6015206457" class="btn-call">Call</a>
+                <a href="mailto:barnesk@magellanfederal.com" class="btn-email">Email</a>
+            </div>
+        </div>
+        <div class="contact-entry">
+            <div class="contact-name">Ricky Tyler</div>
+            <div class="contact-title">Military OneSource Representative</div>
+            <div class="contact-desc">Provides connection to 24/7 free non-medical counseling, financial planning, legal resources, and family referrals.</div>
+            <div class="contact-actions">
+                <a href="tel:6018744641" class="btn-call">Call</a>
+                <a href="mailto:ricky.tyler@militaryonesource.com" class="btn-email">Email</a>
+            </div>
+        </div>
     </div>
 
     <footer>
-        Stay in the fight. You are not alone.<br>
-        <em>If this is an emergency, call 911 or 988.</em>
+        <p><strong>🔒 ZERO Logins. ZERO Tracking.</strong></p>
+        <p style="margin-top: 5px;">This page does not collect names, locations, or browsing cookies. For absolute anonymity, access this QR code inside an Incognito / Private browser tab on your device.</p>
+        <p style="margin-top: 15px; font-size: 0.7rem; opacity: 0.6;">MSARNG Suicide & Substance Abuse Prevention Resource Hub</p>
     </footer>
 
+    <!-- Interactive Logic (Collapsible Menus & Animated Text pacing) -->
+    <script>
+        // Collapsible Accordion logic
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+
+        // Tactical Breathing Text Pacer (Paces matching the 16s CSS animation loop)
+        const breatheText = document.getElementById("breatheText");
+        const breatheInstruction = document.getElementById("breatheInstruction");
+
+        function paceBreathingCycle() {
+            breatheText.innerText = "INHALE";
+            breatheInstruction.innerText = "Inhale deep through your nose (4 seconds)...";
+            
+            setTimeout(() => {
+                breatheText.innerText = "HOLD IN";
+                breatheInstruction.innerText = "Hold that air in your lungs (4 seconds)...";
+            }, 4000);
+
+            setTimeout(() => {
+                breatheText.innerText = "EXHALE";
+                breatheInstruction.innerText = "Exhale slowly through your mouth (4 seconds)...";
+            }, 8000);
+
+            setTimeout(() => {
+                breatheText.innerText = "HOLD OUT";
+                breatheInstruction.innerText = "Hold empty before the next breath (4 seconds)...";
+            }, 12000);
+        }
+
+        // Start pacing loop instantly
+        paceBreathingCycle();
+        setInterval(paceBreathingCycle, 16000);
+    </script>
 </body>
 </html>
