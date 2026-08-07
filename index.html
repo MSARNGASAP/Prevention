@@ -120,40 +120,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Coping Skill Cards */
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-
-        .card h3 {
-            font-size: 1.05rem;
-            color: #f1f5f9;
-            margin-bottom: 8px;
-        }
-
-        .trigger-tag {
-            display: inline-block;
-            background-color: #3b82f6; /* Blue tag */
-            color: #ffffff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .card p {
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
-        }
-
-        /* Accordion Styling (For Clean MSNG Directory) */
+        /* Accordion Styling (For Clean Menus) */
         .accordion {
             background-color: var(--card-bg);
             color: var(--text-primary);
@@ -179,6 +146,11 @@
             color: var(--text-secondary);
         }
 
+        .active {
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0px;
+        }
+
         .active:after {
             content: "\2212"; /* Minus symbol */
         }
@@ -192,8 +164,41 @@
             border-right: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
             border-radius: 0 0 8px 8px;
-            margin-top: -10px;
             margin-bottom: 15px;
+        }
+
+        /* Coping Skill Cards inside Accordions */
+        .coping-card {
+            padding: 15px 5px;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+        }
+
+        .coping-card:last-child {
+            border-bottom: none;
+        }
+
+        .trigger-tag {
+            display: inline-block;
+            background-color: #2563eb; /* Blue tag */
+            color: #ffffff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .coping-card h3 {
+            font-size: 1.05rem;
+            color: #f1f5f9;
+            margin-bottom: 8px;
+        }
+
+        .coping-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
         }
 
         /* Directory Contact Entries */
@@ -229,10 +234,12 @@
         .contact-actions {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap; /* Allows wrapping on small displays */
         }
 
-        .btn-call, .btn-email {
+        .btn-call, .btn-email, .btn-web {
             flex: 1;
+            min-width: 80px;
             padding: 8px;
             border-radius: 4px;
             font-size: 0.8rem;
@@ -250,6 +257,22 @@
             background-color: #334155;
             color: #cbd5e1;
             border: 1px solid #475569;
+        }
+
+        .btn-web {
+            background-color: #0284c7;
+            color: #ffffff;
+        }
+
+        .pending-text {
+            display: inline-block;
+            background-color: #d97706; /* Amber tag */
+            color: #ffffff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
         }
 
         /* Breathing Exercise Animation Tool */
@@ -327,71 +350,76 @@
         </div>
     </div>
 
-    <!-- 🛠️ SITUATIONAL TACTICAL COPING SKILLS -->
+    <!-- 🛠️ SITUATIONAL TACTICAL COPING SKILLS (COLLAPSIBLE ACCORDION) -->
     <h2 class="section-title">Tactical Coping Tools</h2>
 
-    <!-- Box Breathing Card -->
-    <div class="card">
-        <span class="trigger-tag">WHEN TO USE: Acute Panic or Extreme Anger</span>
-        <h3>1. Tactical (Box) Breathing</h3>
-        <p>
-            <strong>Trigger points:</strong> Use this when you feel a racing heart, sudden panic, overwhelming rage, hyperventilation, or right before a confrontation. It physically forces your nervous system to calm down.
-        </p>
-        <p style="font-style: italic; font-size: 0.8rem; margin-bottom: 10px;">
-            Follow the expanding circle below: Inhale (4s), Hold (4s), Exhale (4s), Hold (4s).
-        </p>
+    <button class="accordion">1. Tactical Breathing (Panic & Anger)</button>
+    <div class="panel">
+        <div class="coping-card">
+            <span class="trigger-tag">WHEN TO USE: Acute Panic or Extreme Anger</span>
+            <p>
+                <strong>Trigger points:</strong> Use this when you feel a racing heart, sudden panic, overwhelming rage, hyperventilation, or right before a confrontation. It physically forces your nervous system to calm down.
+            </p>
+            <p style="font-style: italic; font-size: 0.8rem; margin-bottom: 10px;">
+                Follow the expanding circle below: Inhale (4s), Hold (4s), Exhale (4s), Hold (4s).
+            </p>
 
-        <div class="breathing-box-container">
-            <div class="breathing-circle" id="breatheText">BREATHE</div>
-            <div class="breathing-guide-text" id="breatheInstruction">Follow the pace to regulate heart rate</div>
+            <div class="breathing-box-container">
+                <div class="breathing-circle" id="breatheText">BREATHE</div>
+                <div class="breathing-guide-text" id="breatheInstruction">Follow the pace to regulate heart rate</div>
+            </div>
         </div>
     </div>
 
-    <!-- 5-4-3-2-1 Grounding Card -->
-    <div class="card">
-        <span class="trigger-tag">WHEN TO USE: Mental Spirals or Flashbacks</span>
-        <h3>2. 5-4-3-2-1 Grounding Method</h3>
-        <p>
-            <strong>Trigger points:</strong> Use this when trapped in anxiety-driven thought spirals, flashbacks, feeling detached from reality, or experiencing intrusive "what-if" thoughts. It pulls your brain back into the physical room.
-        </p>
-        <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1;">
-            Stop and actively identify:<br>
-            👀 <strong>5 things</strong> you can see around you.<br>
-            ✋ <strong>4 things</strong> you can physically touch.<br>
-            👂 <strong>3 things</strong> you can hear right now.<br>
-            👃 <strong>2 things</strong> you can smell.<br>
-            👅 <strong>1 thing</strong> you can taste.
-        </p>
+    <button class="accordion">2. 5-4-3-2-1 Grounding (Spirals & Flashbacks)</button>
+    <div class="panel">
+        <div class="coping-card">
+            <span class="trigger-tag">WHEN TO USE: Mental Spirals or Flashbacks</span>
+            <p>
+                <strong>Trigger points:</strong> Use this when trapped in anxiety-driven thought spirals, flashbacks, feeling detached from reality, or experiencing intrusive "what-if" thoughts. It pulls your brain back into the physical room.
+            </p>
+            <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
+                Stop and actively identify:<br><br>
+                👀 <strong>5 things</strong> you can see around you.<br>
+                ✋ <strong>4 things</strong> you can physically touch.<br>
+                👂 <strong>3 things</strong> you can hear right now.<br>
+                👃 <strong>2 things</strong> you can smell.<br>
+                👅 <strong>1 thing</strong> you can taste.
+            </p>
+        </div>
     </div>
 
-    <!-- Control the Controllables Card -->
-    <div class="card">
-        <span class="trigger-tag">WHEN TO USE: Command/Admin Frustration</span>
-        <h3>3. Control the Controllables</h3>
-        <p>
-            <strong>Trigger points:</strong> Use this when overwhelmed by delayed paperwork, sudden unit changes, frustrating leadership decisions, or things out of your immediate hand. 
-        </p>
-        <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1;">
-            Draw a line down a piece of paper. Focus ONLY on column A:<br><br>
-            🟢 <strong>A: What is in MY control:</strong> My effort, my daily physical routine, my reactions to others, how I treat my peers, taking care of my kit.<br><br>
-            🔴 <strong>B: What is OUT of my control:</strong> Command timelines, Guard Bureau decisions, administrative delays, other people's behaviors, the past.
-        </p>
+    <button class="accordion">3. Control the Controllables (Admin Frustrations)</button>
+    <div class="panel">
+        <div class="coping-card">
+            <span class="trigger-tag">WHEN TO USE: Command/Admin Frustration</span>
+            <p>
+                <strong>Trigger points:</strong> Use this when overwhelmed by delayed paperwork, sudden unit changes, frustrating leadership decisions, or things out of your immediate hand. 
+            </p>
+            <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
+                Draw a line down a piece of paper. Focus ONLY on column A:<br><br>
+                🟢 <strong>A: What is in MY control:</strong> My effort, my daily physical routine, my reactions to others, how I treat my peers, taking care of my kit.<br><br>
+                🔴 <strong>B: What is OUT of my control:</strong> Command timelines, Guard Bureau decisions, administrative delays, other people's behaviors, the past.
+            </p>
+        </div>
     </div>
 
-    <!-- Cognitive Reframing Card -->
-    <div class="card">
-        <span class="trigger-tag">WHEN TO USE: "Worst-Case" Catastrophizing</span>
-        <h3>4. Break Catastrophic Thinking</h3>
-        <p>
-            <strong>Trigger points:</strong> Use this when you are convinced a bad situation (like failing an evaluation or a relationship fight) means your entire career or life is instantly over.
-        </p>
-        <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1;">
-            Answer these 3 logic questions directly to reset your brain:<br>
-            1. <em>What is the worst-case scenario?</em> (Let yourself face it)<br>
-            2. <em>What is the absolute best-case scenario?</em> (Usually unrealistic)<br>
-            3. <em>What is the MOST LIKELY scenario?</em> (The realistic middle ground you can prepare for)
-        </p>
+    <button class="accordion">4. Break Catastrophic Thinking (De-escalate Crisis)</button>
+    <div class="panel">
+        <div class="coping-card">
+            <span class="trigger-tag">WHEN TO USE: "Worst-Case" Catastrophizing</span>
+            <p>
+                <strong>Trigger points:</strong> Use this when you are convinced a bad situation (like failing an evaluation or a relationship fight) means your entire career or life is instantly over.
+            </p>
+            <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
+                Answer these 3 logic questions directly to reset your brain:<br><br>
+                1. <em>What is the worst-case scenario?</em> (Let yourself face it)<br>
+                2. <em>What is the absolute best-case scenario?</em> (Let yourself imagine hope)<br>
+                3. <em>What is the MOST LIKELY scenario?</em> (The realistic middle ground you can prepare for)
+            </p>
+        </div>
     </div>
+
 
     <!-- 🧭 MSNG LOCAL RESOURCE DIRECTORY (ACCORDIONS) -->
     <h2 class="section-title">MSNG Local Helping Directory</h2>
@@ -444,12 +472,11 @@
             ⚠️ NOTE: Chaplains hold 100% absolute confidentiality. They do not report to the chain of command.
         </p>
         <div class="contact-entry">
-            <div class="contact-name">CH (COL) Cregg Puckett</div>
+            <div class="contact-name">CH Chaplain Bird</div>
             <div class="contact-title">State Chaplain</div>
-            <div class="contact-desc">Confidential counseling, spiritual support regardless of faith background, crisis, and grief care.</div>
+            <div class="contact-desc">State Chaplaincy oversight. Contact details are pending update. Please reach out to your local Support Chaplain or Unit Chaplain in the interim.</div>
             <div class="contact-actions">
-                <a href="tel:6012011618" class="btn-call">Call</a>
-                <a href="mailto:cregg.m.puckett.mil@army.mil" class="btn-email">Email</a>
+                <span class="pending-text">Contact Details Pending</span>
             </div>
         </div>
         <div class="contact-entry">
@@ -468,6 +495,14 @@
             <div class="contact-actions">
                 <a href="tel:6013402151" class="btn-call">Call</a>
                 <a href="mailto:drew.m.holifield.mil@army.mil" class="btn-email">Email</a>
+            </div>
+        </div>
+        <div class="contact-entry">
+            <div class="contact-name">CH Travis Hughes</div>
+            <div class="contact-title">Camp McCain Chaplain</div>
+            <div class="contact-desc">Confidential counseling, spiritual support, and crisis intervention at Camp McCain.</div>
+            <div class="contact-actions">
+                <a href="tel:8153551611" class="btn-call">Call</a>
             </div>
         </div>
     </div>
@@ -550,6 +585,7 @@
             <div class="contact-actions">
                 <a href="tel:6627050673" class="btn-call">Call</a>
                 <a href="mailto:Michael.mcgee@wfwms.org" class="btn-email">Email</a>
+                <a href="https://www.wfwms.org" target="_blank" class="btn-web">Website</a>
             </div>
         </div>
         <div class="contact-entry">
@@ -570,12 +606,12 @@
             ⚠️ NOTE: These external agencies provide counseling and non-medical treatment separate from command visibility.
         </p>
         <div class="contact-entry">
-            <div class="contact-name">Dr. Kimberly Barnes</div>
-            <div class="contact-title">Military & Family Life Counselor (MFLC)</div>
-            <div class="contact-desc">Free, unlimited, highly confidential non-medical counseling for stress, relationships, transitions. Does not report to command.</div>
+            <div class="contact-name">Duty Military & Family Life Counselor (MFLC)</div>
+            <div class="contact-title">Confidential Non-Medical Counseling</div>
+            <div class="contact-desc">Free, unlimited, highly confidential non-medical counseling for stress, relationships, transitions. Does not report to command. Access extensive resources online.</div>
             <div class="contact-actions">
                 <a href="tel:6015206457" class="btn-call">Call</a>
-                <a href="mailto:barnesk@magellanfederal.com" class="btn-email">Email</a>
+                <a href="https://www.militaryonesource.mil" target="_blank" class="btn-web">Website</a>
             </div>
         </div>
         <div class="contact-entry">
@@ -585,6 +621,7 @@
             <div class="contact-actions">
                 <a href="tel:6018744641" class="btn-call">Call</a>
                 <a href="mailto:ricky.tyler@militaryonesource.com" class="btn-email">Email</a>
+                <a href="https://www.militaryonesource.mil" target="_blank" class="btn-web">Website</a>
             </div>
         </div>
     </div>
