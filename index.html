@@ -120,7 +120,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Accordion Styling (For Clean Menus) */
+        /* Accordion Styling */
         .accordion {
             background-color: var(--card-bg);
             color: var(--text-primary);
@@ -141,7 +141,7 @@
         }
 
         .accordion:after {
-            content: '+'; /* Simple plus symbol */
+            content: '+'; /* Clean plus character */
             font-size: 1.2rem;
             color: var(--text-secondary);
             font-weight: bold;
@@ -153,7 +153,7 @@
         }
 
         .active:after {
-            content: '-'; /* Simple minus symbol */
+            content: '-'; /* Clean hyphen character to solve mobile display glitches */
             font-size: 1.4rem;
         }
 
@@ -185,6 +185,18 @@
             color: #ffffff;
             font-size: 0.72rem;
             font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .buddy-tag {
+            display: inline-block;
+            background-color: #84cc16; /* Tactical lime green tag for buddy aid */
+            color: #0f172a;
+            font-size: 0.72rem;
+            font-weight: 800;
             padding: 3px 8px;
             border-radius: 12px;
             margin-bottom: 10px;
@@ -310,17 +322,6 @@
 
         .btn-web:hover {
             background-color: #0369a1;
-        }
-
-        .pending-text {
-            display: inline-block;
-            background-color: #d97706; /* Amber tag */
-            color: #ffffff;
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
         }
 
         /* Breathing Exercise Animation Tool */
@@ -464,6 +465,56 @@
                 1. <em>What is the worst-case scenario?</em> (Let yourself face it)<br>
                 2. <em>What is the absolute best-case scenario?</em> (Let yourself imagine hope)<br>
                 3. <em>What is the MOST LIKELY scenario?</em> (The realistic middle ground you can prepare for)
+            </p>
+        </div>
+    </div>
+
+    <button class="accordion">5. The S.T.O.P. Method (Impulse Control & Conflict)</button>
+    <div class="panel">
+        <div class="coping-card">
+            <span class="trigger-tag">WHEN TO USE: Urge to React with Anger, Text, or Destructive Habits</span>
+            <p>
+                <strong>Trigger points:</strong> Use this when you are about to send a text you might regret, lash out at your spouse/command, turn to alcohol, or make any fast, self-destructive decision during high stress.
+            </p>
+            <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
+                Follow this simple block protocol to bypass sudden emotional impulses:<br><br>
+                🛑 <strong>S - Stop:</strong> Pause literally whatever you are doing. Do not speak. Do not type. Freeze for a moment.<br><br>
+                🌬️ <strong>T - Take a Breath:</strong> Do one slow deep breath (inhale 4 seconds, exhale 4 seconds) to physically interrupt your flight-or-fight response.<br><br>
+                🧠 <strong>O - Observe:</strong> Ask yourself: "What am I physically feeling right now? Is this anger, fear, or pride? Will my immediate reaction make my life better or worse?"<br><br>
+                🚶 <strong>P - Proceed Mindfully:</strong> Choose your next step based on logic, not emotion. If needed, step away from the situation entirely before taking action.
+            </p>
+        </div>
+    </div>
+
+    <button class="accordion">6. The H.A.L.T. Check (Unexplained Mood Drops)</button>
+    <div class="panel">
+        <div class="coping-card">
+            <span class="trigger-tag">WHEN TO USE: Unexplained Anger, Sadness, or Low Energy</span>
+            <p>
+                <strong>Trigger points:</strong> Use this when you notice a sudden shift in your mood—like feelings of deep depression, severe irritation, or overall exhaustion—and you aren't completely sure why you're feeling that way.
+            </p>
+            <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
+                Before letting your mind spiral into dark thoughts, stop and check if a basic physical need is neglected:<br><br>
+                🍔 <strong>H - Hungry:</strong> Have you eaten in the last 4-5 hours? Low blood sugar mimics clinical anxiety and extreme irritability.<br><br>
+                😡 <strong>A - Angry:</strong> Are you carrying unresolved anger from a conversation or event earlier in the day? Deal with the root cause, not the person in front of you.<br><br>
+                👥 <strong>L - Lonely:</strong> Have you isolated yourself? Reach out, text a buddy, or just go sit in a room with family or other people to break the vacuum.<br><br>
+                💤 <strong>T - Tired:</strong> Are you operating on less than 6 hours of sleep? Severe fatigue shuts down your logical brain, amplifying despair.
+            </p>
+        </div>
+    </div>
+
+    <button class="accordion">7. Help a Buddy (ACE Peer Support Guidelines)</button>
+    <div class="panel">
+        <div class="coping-card">
+            <span class="buddy-tag">BUDDY AID: How to Step in for a Battle Buddy</span>
+            <p>
+                <strong>Trigger points:</strong> Use this when you notice a battle buddy showing warning signs (withdrawal, giving away possessions, talking about hopeless futures, sudden mood swings, or extreme anger). 
+            </p>
+            <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
+                Remember the Army's <strong>A.C.E.</strong> framework—it is simple, effective, and saves lives:<br><br>
+                🗣️ <strong>A - Ask:</strong> Ask the question directly. Don't beat around the bush. Say: <em>"Hey man, I've noticed you've been having a tough time lately. Are you thinking about killing yourself?"</em> (Asking directly does NOT put the idea in their head; it offers a lifeline).<br><br>
+                🤝 <strong>C - Care:</strong> Listen without judging them. Don't lecture them or tell them how good they have it. Actively listen and control your own reaction. Validate that they are going through a hard time, and say: <em>"I'm here with you. We'll get through this together."</em><br><br>
+                🚗 <strong>E - Escort:</strong> Never leave them alone. Do not send them home by themselves or expect them to drive to help. Escort them directly to one of the resources listed on this site, call 988 with them, or take them to the nearest emergency room.
             </p>
         </div>
     </div>
