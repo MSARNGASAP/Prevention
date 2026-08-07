@@ -233,6 +233,40 @@
             margin-bottom: 10px;
         }
 
+        /* Plain Text Contact Info Card styling */
+        .contact-text-info {
+            background-color: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(51, 65, 85, 0.6);
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 12px;
+            font-size: 0.82rem;
+            color: #e2e8f0;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+
+        .contact-text-line {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        .contact-text-line:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-label {
+            font-weight: bold;
+            color: #94a3b8;
+            width: 55px;
+            flex-shrink: 0;
+        }
+
+        .contact-value {
+            color: #f1f5f9;
+        }
+
         .contact-actions {
             display: flex;
             gap: 10px;
@@ -255,15 +289,27 @@
             color: #ffffff;
         }
 
+        .btn-call:hover {
+            background-color: var(--accent-green-hover);
+        }
+
         .btn-email {
             background-color: #334155;
             color: #cbd5e1;
             border: 1px solid #475569;
         }
 
+        .btn-email:hover {
+            background-color: #1e293b;
+        }
+
         .btn-web {
             background-color: #0284c7;
             color: #ffffff;
+        }
+
+        .btn-web:hover {
+            background-color: #0369a1;
         }
 
         .pending-text {
@@ -433,8 +479,12 @@
             <div class="contact-name">Fameika Thomas, LCSW</div>
             <div class="contact-title">Director of Psychological Health (DPH)</div>
             <div class="contact-desc">Offers short-term solution-focused counseling (3-5 sessions), assessments, and secure community referrals.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-896-8480</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">fameika.a.thomas.civ@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6018968480" class="btn-call">Call</a>
+                <a href="tel:6018968480" class="btn-call">Call Now</a>
                 <a href="mailto:fameika.a.thomas.civ@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -442,8 +492,12 @@
             <div class="contact-name">Leslie Bensieck</div>
             <div class="contact-title">Tupelo Behavioral Health Counselor (BH)</div>
             <div class="contact-desc">Localized behavioral health assessment and support counseling in Northern MS.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-891-4462</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">leslie.c.bensieck.civ@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6628914462" class="btn-call">Call</a>
+                <a href="tel:6628914462" class="btn-call">Call Now</a>
                 <a href="mailto:leslie.c.bensieck.civ@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -451,8 +505,12 @@
             <div class="contact-name">Frenchie Sanford</div>
             <div class="contact-title">Camp McCain Behavioral Health Counselor (BH)</div>
             <div class="contact-desc">Localized behavioral health assessment and support counseling around Camp McCain.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-294-0095</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">hiawatha.f.sanford.civ@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6622940095" class="btn-call">Call</a>
+                <a href="tel:6622940095" class="btn-call">Call Now</a>
                 <a href="mailto:hiawatha.f.sanford.civ@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -460,8 +518,12 @@
             <div class="contact-name">James Coleman</div>
             <div class="contact-title">Camp Shelby Behavioral Health Counselor (BH)</div>
             <div class="contact-desc">Localized behavioral health assessment and support counseling around Camp Shelby.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-896-8480</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">james.e.coleman125.civ@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6018968480" class="btn-call">Call</a>
+                <a href="tel:6018968480" class="btn-call">Call Now</a>
                 <a href="mailto:james.e.coleman125.civ@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -477,8 +539,12 @@
             <div class="contact-name">CH (LTC) Jason Bird</div>
             <div class="contact-title">State Chaplain</div>
             <div class="contact-desc">Confidential state chaplaincy oversight, crisis and spiritual guidance, ethical counseling, and family support.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-917-9217</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">jason.p.bird.mil@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6019179217" class="btn-call">Call</a>
+                <a href="tel:6019179217" class="btn-call">Call Now</a>
                 <a href="mailto:jason.p.bird.mil@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -486,8 +552,12 @@
             <div class="contact-name">CH (LTC) David Morris</div>
             <div class="contact-title">State Support Chaplain</div>
             <div class="contact-desc">Relationship/resiliency programs, spiritual support, and Building Strong and Ready Teams (BSRT) programs.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-3656</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">david.o.morris15.mil@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6013873656" class="btn-call">Call</a>
+                <a href="tel:6013873656" class="btn-call">Call Now</a>
                 <a href="mailto:david.o.morris15.mil@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -495,8 +565,12 @@
             <div class="contact-name">CH (CPT) Drew Holifield</div>
             <div class="contact-title">Camp Shelby Support Chaplain</div>
             <div class="contact-desc">Camp Shelby point of contact for spiritual support, counseling, and BSRT training.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-340-2151</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">drew.m.holifield.mil@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6013402151" class="btn-call">Call</a>
+                <a href="tel:6013402151" class="btn-call">Call Now</a>
                 <a href="mailto:drew.m.holifield.mil@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -504,8 +578,11 @@
             <div class="contact-name">CH Travis Hughes</div>
             <div class="contact-title">Camp McCain Chaplain</div>
             <div class="contact-desc">Confidential counseling, spiritual support, and crisis intervention at Camp McCain.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">815-355-1611</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:8153551611" class="btn-call">Call</a>
+                <a href="tel:8153551611" class="btn-call">Call Now</a>
             </div>
         </div>
     </div>
@@ -517,8 +594,12 @@
             <div class="contact-name">COL Steven Cochran</div>
             <div class="contact-title">Integrated Primary Prevention Officer</div>
             <div class="contact-desc">Spearheads proactive command climate efforts to address risk factors and prevent harmful behaviors.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-720-9763</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">steven.b.cochran.mil@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6017209763" class="btn-call">Call</a>
+                <a href="tel:6017209763" class="btn-call">Call Now</a>
                 <a href="mailto:steven.b.cochran.mil@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -526,8 +607,12 @@
             <div class="contact-name">1SG James Huffman</div>
             <div class="contact-title">Integrated Primary Prevention Specialist</div>
             <div class="contact-desc">Oversight of risk reduction, Applied Resiliency Training, and ASIST suicide intervention skills.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-3665</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">james.w.huffman6.mil@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6013873665" class="btn-call">Call</a>
+                <a href="tel:6013873665" class="btn-call">Call Now</a>
                 <a href="mailto:james.w.huffman6.mil@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -535,8 +620,12 @@
             <div class="contact-name">Reagan Sumrall</div>
             <div class="contact-title">Risk Reduction Coordinator</div>
             <div class="contact-desc">Monitors high-risk behaviors and coordinates trends mitigation support for commanders.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-889-8213</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">reagan.e.sumrall.ctr@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6628898213" class="btn-call">Call</a>
+                <a href="tel:6628898213" class="btn-call">Call Now</a>
                 <a href="mailto:reagan.e.sumrall.ctr@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -544,8 +633,12 @@
             <div class="contact-name">Mackenna Samples</div>
             <div class="contact-title">Prevention Coordinator (North)</div>
             <div class="contact-desc">Prevention training, unit briefings, protective factors support, and MyPRIME substance misuse coordination.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-688-7126</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">mackenna.c.samples.ctr@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6626887126" class="btn-call">Call</a>
+                <a href="tel:6626887126" class="btn-call">Call Now</a>
                 <a href="mailto:mackenna.c.samples.ctr@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -553,8 +646,12 @@
             <div class="contact-name">LTC Tiffany Crawford</div>
             <div class="contact-title">Sexual Assault Prevention & Response (SAPR)</div>
             <div class="contact-desc">Victim advocacy, crisis response, reporting options education, and ongoing care coordination.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-813-1427</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">tiffany.l.crawford14.mil@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6018131427" class="btn-call">Call</a>
+                <a href="tel:6018131427" class="btn-call">Call Now</a>
                 <a href="mailto:tiffany.l.crawford14.mil@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -567,8 +664,12 @@
             <div class="contact-name">Ms. Danielle Richards</div>
             <div class="contact-title">Military & Family Readiness Manager</div>
             <div class="contact-desc">Deployment/reintegration help and point of contact for the MSNG Military Relief Fund application.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">769-572-0985</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">danielle.p.richards2.civ@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:7695720985" class="btn-call">Call</a>
+                <a href="tel:7695720985" class="btn-call">Call Now</a>
                 <a href="mailto:danielle.p.richards2.civ@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -576,8 +677,12 @@
             <div class="contact-name">Willie McGriggs</div>
             <div class="contact-title">Personal Financial Counselor</div>
             <div class="contact-desc">No-cost confidential financial counseling, budgeting, debt management, and financial planning.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">(601) 331-6292</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">pfc.jacksonms@magellanfederal.com</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6013316292" class="btn-call">Call</a>
+                <a href="tel:6013316292" class="btn-call">Call Now</a>
                 <a href="mailto:pfc.jacksonms@magellanfederal.com" class="btn-email">Email</a>
             </div>
         </div>
@@ -585,8 +690,13 @@
             <div class="contact-name">Michael McGee</div>
             <div class="contact-title">Work4Warriors Placement Coordinator</div>
             <div class="contact-desc">No-cost career placement assistance, resume building, job searches, and MS employer networking.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-705-0673</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">Michael.mcgee@wfwms.org</span></div>
+                <div class="contact-text-line"><span class="contact-label">Web:</span><span class="contact-value">www.wfwms.org</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6627050673" class="btn-call">Call</a>
+                <a href="tel:6627050673" class="btn-call">Call Now</a>
                 <a href="mailto:Michael.mcgee@wfwms.org" class="btn-email">Email</a>
                 <a href="https://www.wfwms.org" target="_blank" class="btn-web">Website</a>
             </div>
@@ -595,8 +705,12 @@
             <div class="contact-name">Tim Abrams</div>
             <div class="contact-title">Benefits & Transition Coordinator</div>
             <div class="contact-desc">Education on benefits, VA entitlements, retirement, separation, and civilian life transition guidance.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-918-0975</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">timothy.l.abram.ctr@army.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6019180975" class="btn-call">Call</a>
+                <a href="tel:6019180975" class="btn-call">Call Now</a>
                 <a href="mailto:timothy.l.abram.ctr@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -612,8 +726,12 @@
             <div class="contact-name">Military & Family Life Counselor (MFLC)</div>
             <div class="contact-title">Confidential Non-Medical Counseling</div>
             <div class="contact-desc">Free, unlimited, highly confidential non-medical counseling for stress, relationships, transitions. Does not report to command. Access extensive resources online.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-520-6457</span></div>
+                <div class="contact-text-line"><span class="contact-label">Web:</span><span class="contact-value">www.militaryonesource.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6015206457" class="btn-call">Call</a>
+                <a href="tel:6015206457" class="btn-call">Call Now</a>
                 <a href="https://www.militaryonesource.mil" target="_blank" class="btn-web">Website</a>
             </div>
         </div>
@@ -621,8 +739,13 @@
             <div class="contact-name">Ricky Tyler</div>
             <div class="contact-title">Military OneSource Representative</div>
             <div class="contact-desc">Provides connection to 24/7 free non-medical counseling, financial planning, legal resources, and family referrals.</div>
+            <div class="contact-text-info">
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-874-4641</span></div>
+                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">ricky.tyler@militaryonesource.com</span></div>
+                <div class="contact-text-line"><span class="contact-label">Web:</span><span class="contact-value">www.militaryonesource.mil</span></div>
+            </div>
             <div class="contact-actions">
-                <a href="tel:6018744641" class="btn-call">Call</a>
+                <a href="tel:6018744641" class="btn-call">Call Now</a>
                 <a href="mailto:ricky.tyler@militaryonesource.com" class="btn-email">Email</a>
                 <a href="https://www.militaryonesource.mil" target="_blank" class="btn-web">Website</a>
             </div>
