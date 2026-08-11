@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MSARNG Tactical Go-Bag</title>
     <style>
-        /* Modern Military Dark-Theme & Responsive CSS Variables */
+        /* Restorative Ocean-Teal Theme (Calming & Non-Threatening) */
         :root {
-            --bg-color: #0f172a; /* Deep dark blue-gray */
-            --card-bg: #1e293b; /* Slightly lighter blue-gray for cards */
-            --accent-green: #4d7c0f; /* Tactical muted green */
-            --accent-green-hover: #3f6212;
-            --emergency-red: #dc2626; /* Warning red */
-            --emergency-red-hover: #b91c1c;
-            --text-primary: #f8fafc; /* Crisp white */
-            --text-secondary: #94a3b8; /* Muted gray text */
-            --border-color: #334155;
+            --bg-color: #0a192f; /* Peaceful twilight ocean */
+            --card-bg: #172a45; /* Soft, warm Navy */
+            --accent-teal: #00b4d8; /* Restorative teal representing healing */
+            --accent-teal-hover: #0077b6;
+            --warm-gold: #f5a623; /* Warm supportive amber/gold instead of warning red */
+            --warm-gold-hover: #d97706;
+            --text-primary: #f8fafc; /* High-contrast white */
+            --text-secondary: #94a3b8; /* Soft blue-gray for paragraphs */
+            --border-color: #1e3a8a; /* Deep ocean-blue border lines */
         }
 
         * {
@@ -31,35 +31,36 @@
             color: var(--text-primary);
             line-height: 1.5;
             padding: 15px;
-            max-width: 480px; /* Locked to mobile width for perfect scaling */
+            max-width: 480px; /* Compact mobile width for perfect phone scaling */
             margin: 0 auto;
         }
 
         header {
             text-align: center;
-            padding: 20px 10px;
-            border-bottom: 1px solid var(--border-color);
+            padding: 25px 10px;
+            border-bottom: 2px solid var(--border-color);
             margin-bottom: 20px;
         }
 
         header h1 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--text-primary);
+            color: var(--accent-teal);
             margin-bottom: 5px;
         }
 
         header p {
             font-size: 0.85rem;
             color: var(--text-secondary);
+            font-weight: 500;
         }
 
-        /* Immediate Action Banner */
+        /* Immediate Action Banner (Warm Gold/Amber) */
         .emergency-banner {
-            background-color: rgba(220, 38, 38, 0.15);
-            border: 1px solid var(--emergency-red);
-            border-radius: 8px;
+            background-color: rgba(245, 166, 35, 0.08);
+            border: 2px solid var(--warm-gold);
+            border-radius: 12px; /* Softer, rounded corners */
             padding: 15px;
             margin-bottom: 25px;
             text-align: center;
@@ -67,9 +68,10 @@
 
         .emergency-banner h2 {
             font-size: 1.1rem;
-            color: #f87171;
+            color: var(--warm-gold);
             margin-bottom: 10px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .emergency-buttons {
@@ -83,7 +85,7 @@
             align-items: center;
             justify-content: center;
             padding: 14px;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: bold;
             text-decoration: none;
             font-size: 0.95rem;
@@ -93,86 +95,91 @@
         }
 
         .btn-danger {
-            background-color: var(--emergency-red);
-            color: #ffffff;
+            background-color: var(--warm-gold);
+            color: #0f172a; /* High contrast dark text on gold */
         }
 
         .btn-danger:hover {
-            background-color: var(--emergency-red-hover);
+            background-color: var(--warm-gold-hover);
         }
 
         .btn-secondary {
-            background-color: #475569;
-            color: #ffffff;
+            background-color: #1e293b;
+            color: #cbd5e1;
+            border: 1px solid #334155;
         }
 
         .btn-secondary:hover {
-            background-color: #334155;
+            background-color: #0f172a;
         }
 
         /* Section Headings */
         .section-title {
             font-size: 1.2rem;
-            margin: 25px 0 12px 0;
-            padding-left: 8px;
-            border-left: 4px solid var(--accent-green);
+            margin: 30px 0 15px 0;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent-teal);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            color: var(--text-primary);
         }
 
-        /* Accordion Styling */
+        /* Accordion Collapsible Menus */
         .accordion {
             background-color: var(--card-bg);
             color: var(--text-primary);
             cursor: pointer;
-            padding: 15px;
+            padding: 16px;
             width: 100%;
             text-align: left;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 12px; /* Soft, highly comforting curves */
             outline: none;
             font-size: 0.95rem;
             font-weight: bold;
-            transition: 0.2s;
-            margin-bottom: 8px;
+            transition: background-color 0.2s, border-radius 0.2s;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .accordion:after {
-            content: '+'; /* Clean plus character */
+            content: '+'; /* Clear, robust plus character (solves display code bugs) */
             font-size: 1.2rem;
-            color: var(--text-secondary);
+            color: var(--accent-teal);
             font-weight: bold;
         }
 
         .active {
-            border-radius: 8px 8px 0 0;
+            border-radius: 12px 12px 0 0;
             margin-bottom: 0px;
+            background-color: rgba(23, 42, 69, 0.9);
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
         }
 
         .active:after {
-            content: '-'; /* Clean hyphen character to solve mobile display glitches */
+            content: '-'; /* Clear standard hyphen character */
             font-size: 1.4rem;
+            color: var(--text-secondary);
         }
 
         .panel {
-            padding: 0 10px;
-            background-color: rgba(30, 41, 59, 0.5);
+            padding: 0 15px;
+            background-color: rgba(23, 42, 69, 0.4);
             display: none;
             overflow: hidden;
             border-left: 1px solid var(--border-color);
             border-right: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
-            border-radius: 0 0 8px 8px;
+            border-radius: 0 0 12px 12px;
             margin-bottom: 15px;
         }
 
-        /* Coping Skill Cards inside Accordions */
+        /* Inside Accordion Content Cards */
         .coping-card {
-            padding: 15px 5px;
-            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+            padding: 18px 5px;
+            border-bottom: 1px solid rgba(30, 58, 138, 0.4);
         }
 
         .coping-card:last-child {
@@ -181,31 +188,31 @@
 
         .trigger-tag {
             display: inline-block;
-            background-color: #2563eb; /* Blue tag */
+            background-color: #2563eb; /* Accessible trust blue */
             color: #ffffff;
             font-size: 0.72rem;
             font-weight: 700;
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 12px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
         .buddy-tag {
             display: inline-block;
-            background-color: #84cc16; /* Tactical lime green tag for buddy aid */
-            color: #0f172a;
+            background-color: #10b981; /* Comforting emerald/lime buddy aid tag */
+            color: #0a192f;
             font-size: 0.72rem;
             font-weight: 800;
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 12px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
         .coping-card h3 {
-            font-size: 1.05rem;
-            color: #f1f5f9;
+            font-size: 1.1rem;
+            color: var(--text-primary);
             margin-bottom: 8px;
         }
 
@@ -215,10 +222,21 @@
             margin-bottom: 12px;
         }
 
-        /* Directory Contact Entries */
+        .coping-card ul, .coping-card ol {
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-size: 0.88rem;
+            color: #cbd5e1;
+        }
+
+        .coping-card li {
+            margin-bottom: 8px;
+        }
+
+        /* Directory Contact Cards */
         .contact-entry {
-            padding: 15px 5px;
-            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+            padding: 18px 5px;
+            border-bottom: 1px solid rgba(30, 58, 138, 0.4);
         }
 
         .contact-entry:last-child {
@@ -227,30 +245,31 @@
 
         .contact-name {
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #f1f5f9;
         }
 
         .contact-title {
             font-size: 0.8rem;
-            color: #38bdf8; /* Soft blue for roles */
+            color: var(--accent-teal); /* Soft teal highlights for job roles */
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 6px;
+            letter-spacing: 0.5px;
         }
 
         .contact-desc {
             font-size: 0.85rem;
             color: var(--text-secondary);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
-        /* Plain Text Contact Info Card styling */
+        /* High-Visibility Plain Text Contact Block */
         .contact-text-info {
-            background-color: rgba(15, 23, 42, 0.4);
-            border: 1px solid rgba(51, 65, 85, 0.6);
-            border-radius: 6px;
-            padding: 10px;
+            background-color: rgba(10, 25, 47, 0.8);
+            border: 1px solid rgba(30, 58, 138, 0.6);
+            border-radius: 8px;
+            padding: 12px;
             margin-bottom: 12px;
             font-size: 0.82rem;
             color: #e2e8f0;
@@ -270,49 +289,52 @@
 
         .contact-label {
             font-weight: bold;
-            color: #94a3b8;
+            color: #64748b;
             width: 55px;
             flex-shrink: 0;
         }
 
         .contact-value {
-            color: #f1f5f9;
+            color: #cbd5e1;
         }
 
+        /* Action Buttons */
         .contact-actions {
             display: flex;
             gap: 10px;
-            flex-wrap: wrap; /* Allows wrapping on small displays */
+            flex-wrap: wrap;
         }
 
         .btn-call, .btn-email, .btn-web {
             flex: 1;
             min-width: 80px;
-            padding: 8px;
-            border-radius: 4px;
+            padding: 10px;
+            border-radius: 6px;
             font-size: 0.8rem;
             text-align: center;
             text-decoration: none;
             font-weight: bold;
+            transition: background-color 0.2s;
         }
 
         .btn-call {
-            background-color: var(--accent-green);
-            color: #ffffff;
+            background-color: var(--accent-teal);
+            color: #0a192f;
         }
 
         .btn-call:hover {
-            background-color: var(--accent-green-hover);
+            background-color: var(--accent-teal-hover);
+            color: #ffffff;
         }
 
         .btn-email {
-            background-color: #334155;
+            background-color: #1e293b;
             color: #cbd5e1;
-            border: 1px solid #475569;
+            border: 1px solid #334155;
         }
 
         .btn-email:hover {
-            background-color: #1e293b;
+            background-color: #0f172a;
         }
 
         .btn-web {
@@ -330,46 +352,48 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 15px;
-            background: rgba(15, 23, 42, 0.6);
-            border-radius: 6px;
+            padding: 20px;
+            background: rgba(10, 25, 47, 0.6);
+            border-radius: 8px;
             margin-top: 10px;
+            border: 1px solid rgba(0, 180, 216, 0.15);
         }
 
         .breathing-circle {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            background-color: var(--accent-green);
+            background-color: var(--accent-teal);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             font-size: 0.85rem;
+            color: #0a192f;
             animation: breatheAnimation 16s infinite ease-in-out;
-            box-shadow: 0 0 15px rgba(77, 124, 15, 0.4);
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
         }
 
         @keyframes breatheAnimation {
-            0%, 100% { transform: scale(1); background-color: var(--accent-green); } /* Hold Out (4s) */
-            25% { transform: scale(1.6); background-color: #10b981; } /* Inhale (4s) */
-            50% { transform: scale(1.6); background-color: #059669; } /* Hold In (4s) */
-            75% { transform: scale(1); background-color: #15803d; } /* Exhale (4s) */
+            0%, 100% { transform: scale(1); background-color: var(--accent-teal); } /* Hold Out (4s) */
+            25% { transform: scale(1.6); background-color: #48cae4; box-shadow: 0 0 30px rgba(72, 202, 228, 0.5); } /* Inhale (4s) */
+            50% { transform: scale(1.6); background-color: #0077b6; box-shadow: 0 0 30px rgba(0, 119, 182, 0.5); } /* Hold In (4s) */
+            75% { transform: scale(1); background-color: #03045e; color: #ffffff; } /* Exhale (4s) */
         }
 
         .breathing-guide-text {
-            margin-top: 15px;
+            margin-top: 18px;
             font-size: 0.85rem;
-            color: #a7f3d0;
+            color: #90e0ef;
             font-weight: bold;
             text-align: center;
         }
 
         /* Footer and Privacy Disclaimer */
         footer {
-            margin-top: 40px;
-            padding: 20px 10px;
-            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+            padding: 25px 10px;
+            border-top: 2px solid var(--border-color);
             text-align: center;
             font-size: 0.78rem;
             color: var(--text-secondary);
@@ -384,12 +408,12 @@
 
     <header>
         <h1>MSARNG Tactical Go-Bag</h1>
-        <p>100% Anonymous •  Free Resources</p>
+        <p>100% Anonymous • No Logins • Free Support</p>
     </header>
 
-    <!-- 🚨 IMMEDIATE CRISIS TRIAGE -->
+    <!-- 🚨 IMMEDIATE CRISIS TRIAGE (WARM GOLD BANNER) -->
     <div class="emergency-banner">
-        <h2>In Distress? Action Now</h2>
+        <h2>Need Someone to Talk To Right Now?</h2>
         <p style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 12px;">
             Immediate, 100% confidential support outside command lines.
         </p>
@@ -399,7 +423,7 @@
         </div>
     </div>
 
-    <!-- 🛠️ SITUATIONAL TACTICAL COPING SKILLS (COLLAPSIBLE ACCORDION) -->
+    <!-- 🛠️ SITUATIONAL TACTICAL COPING SKILLS (ACCORDION STYLE) -->
     <h2 class="section-title">Tactical Coping Tools</h2>
 
     <button class="accordion">1. Tactical Breathing (Panic & Anger)</button>
@@ -409,7 +433,7 @@
             <p>
                 <strong>Trigger points:</strong> Use this when you feel a racing heart, sudden panic, overwhelming rage, hyperventilation, or right before a confrontation. It physically forces your nervous system to calm down.
             </p>
-            <p style="font-style: italic; font-size: 0.8rem; margin-bottom: 10px;">
+            <p style="font-style: italic; font-size: 0.8rem; margin-bottom: 10px; color: #90e0ef;">
                 Follow the expanding circle below: Inhale (4s), Hold (4s), Exhale (4s), Hold (4s).
             </p>
 
@@ -428,7 +452,7 @@
                 <strong>Trigger points:</strong> Use this when trapped in anxiety-driven thought spirals, flashbacks, feeling detached from reality, or experiencing intrusive "what-if" thoughts. It pulls your brain back into the physical room.
             </p>
             <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
-                Stop and actively identify:<br><br>
+                Stop, look around, and actively identify:<br><br>
                 👀 <strong>5 things</strong> you can see around you.<br>
                 ✋ <strong>4 things</strong> you can physically touch.<br>
                 👂 <strong>3 things</strong> you can hear right now.<br>
@@ -520,7 +544,56 @@
     </div>
 
 
-    <!-- 🧭 MSNG LOCAL RESOURCE DIRECTORY (ACCORDIONS) -->
+    <!-- 🔋 TACTICAL BODY & MIND HACKS (SCIENCE-BASED PREVENTION STRATEGIES) -->
+    <h2 class="section-title">Tactical Body & Mind Hacks</h2>
+
+    <button class="accordion">The Neurobiology of Sweat (Exercise vs. Anxiety)</button>
+    <div class="panel">
+        <div class="coping-card">
+            <span class="trigger-tag">TARGET: Low Mood, Anxiety, & Brain Fog</span>
+            <p><strong>The Science:</strong> Physical exercise is not about looking good; it is a neurological system maintenance protocol.</p>
+            <ul>
+                <li><strong>Cortisol Flush:</strong> High stress dumps cortisol and adrenaline into your bloodstream, leaving you jittery and anxious. Intense cardiovascular activity (elevating your heart rate for 20+ mins) physically flushes these chemicals out of your organs and muscles.</li>
+                <li><strong>BDNF Production:</strong> Elevating your heart rate releases <em>Brain-Derived Neurotrophic Factor</em> (BDNF). This chemical acts like fertilizer for your brain, repairing cells damaged by chronic stress and improving memory, learning, and focus.</li>
+                <li><strong>Endorphin Release:</strong> Heavy resistance training or sprints force the release of neurotransmitters (endorphins and dopamine) that bind to the opiate receptors in your brain, lowering pain and raising your mood naturally.</li>
+            </ul>
+        </div>
+    </div>
+
+    <button class="accordion">The Amygdala Sleep Shield (PTSD & Rage Prevention)</button>
+    <div class="panel">
+        <div class="coping-card">
+            <span class="trigger-tag">TARGET: Irritability, Anger, & Trauma Recurrence</span>
+            <p><strong>The Science:</strong> Sleeping under 6 hours a night directly cripples your brain's emotional control center.</p>
+            <ul>
+                <li><strong>The Amygdala Hijack:</strong> When you are sleep-deprived, your amygdala (the brain's survival threat detector) becomes up to 60% more hyper-active. This is why small, everyday frustrations feel like catastrophic emergencies or provoke sudden outbursts of rage.</li>
+                <li><strong>Memory Consolidation:</strong> During deep sleep (REM), your brain processes the day's stress and emotional trauma. Without REM sleep, traumatic memories remain "active" and raw, directly increasing PTSD flashbacks and sleep anxiety.</li>
+                <li><strong>The 10-3-2-1-0 Sleep Protocol:</strong>
+                    <br>• <strong>10 hours</strong> before bed: No caffeine.
+                    <br>• <strong>3 hours</strong> before bed: No heavy meals or alcohol (alcohol blocks REM sleep).
+                    <br>• <strong>2 hours</strong> before bed: No work.
+                    <br>• <strong>1 hour</strong> before bed: No screens/blue light.
+                    <br>• <strong>0:</strong> The number of times you should hit snooze in the morning.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <button class="accordion">Hydration Triage (Anxiety Mimicry)</button>
+    <div class="panel">
+        <div class="coping-card">
+            <span class="trigger-tag">TARGET: Physical Jitters & Panic Attacks</span>
+            <p><strong>The Science:</strong> Mild dehydration mimics and triggers physical panic attacks.</p>
+            <ul>
+                <li><strong>The 1.5% Threshold:</strong> As little as 1.5% dehydration reduces alertness, causes brain fog, and increases fatigue.</li>
+                <li><strong>Vagus Nerve Stimulation:</strong> Dehydration causes your blood volume to drop, which forces your heart to beat faster to pump blood. This elevated heart rate is detected by your brain as an emergency, initiating a physical panic response (shaking, dry mouth, rapid breathing).</li>
+                <li><strong>Triage Step:</strong> The moment you feel a panic attack or major anxiety spiral beginning, drink 16-20 ounces of cold water immediately before executing your Tactical Breathing cycle.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- 🧭 MSNG LOCAL RESOURCE DIRECTORY (ACCORDION SECTIONS WITH FULL RAW DATA DISPLAYED) -->
     <h2 class="section-title">MSNG Local Helping Directory</h2>
 
     <!-- Mental Health & Counseling Accordion -->
@@ -682,7 +755,7 @@
         </div>
         <div class="contact-entry">
             <div class="contact-name">Mackenna Samples</div>
-            <div class="contact-title">Prevention Coordinator (North MS)</div>
+            <div class="contact-title">Prevention Coordinator (North)</div>
             <div class="contact-desc">Prevention training, unit briefings, protective factors support, and MyPRIME substance misuse coordination.</div>
             <div class="contact-text-info">
                 <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-688-7126</span></div>
@@ -767,7 +840,7 @@
         </div>
     </div>
 
-    <!-- Off-The-Books (Outside DoD) Accordion -->
+    <!-- External Confidential Counselors Accordion -->
     <button class="accordion">External Confidential Counselors</button>
     <div class="panel">
         <p style="font-size: 0.78rem; color: #a7f3d0; padding: 10px 5px 0 5px; font-weight: bold;">
@@ -806,7 +879,7 @@
     <footer>
         <p><strong>🔒 ZERO Logins. ZERO Tracking.</strong></p>
         <p style="margin-top: 5px;">This page does not collect names, locations, or browsing cookies. For absolute anonymity, access this QR code inside an Incognito / Private browser tab on your device.</p>
-        <p style="margin-top: 15px; font-size: 0.7rem; opacity: 0.6;">MSARNG Substance Abuse and Suicide Prevention Resource Hub</p>
+        <p style="margin-top: 15px; font-size: 0.7rem; opacity: 0.6;">MSARNG Suicide & Substance Abuse Prevention Resource Hub</p>
     </footer>
 
     <!-- Interactive Logic (Collapsible Menus & Animated Text pacing) -->
