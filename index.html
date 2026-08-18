@@ -347,39 +347,68 @@
             background-color: #3b4b31;
         }
 
-        /* Breathing Exercise Animation Tool */
+        /* Dynamic Breathing Exercise Tool Styling */
         .breathing-box-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 25px;
             background: rgba(26, 34, 25, 0.6);
-            border-radius: 8px;
-            margin-top: 10px;
+            border-radius: 12px;
+            margin-top: 15px;
             border: 1px solid rgba(140, 179, 105, 0.15);
         }
 
+        /* JS-Driven Smooth Transition properties */
         .breathing-circle {
             width: 110px;
             height: 110px;
             border-radius: 50%;
-            background-color: var(--accent-green);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transform: scale(1);
+            background-color: var(--accent-green);
             color: #1a2219;
-            animation: breatheAnimation 16s infinite ease-in-out;
             box-shadow: 0 0 20px rgba(140, 179, 105, 0.3);
+            transition: transform 4s ease-in-out, background-color 4s ease-in-out, box-shadow 4s ease-in-out, color 4s ease-in-out;
         }
 
-        @keyframes breatheAnimation {
-            0%, 100% { transform: scale(1); background-color: var(--accent-green); } /* Hold Out (4s) */
-            25% { transform: scale(1.6); background-color: #a3b18a; box-shadow: 0 0 30px rgba(163, 177, 138, 0.5); } /* Inhale (4s) */
-            50% { transform: scale(1.6); background-color: #588157; box-shadow: 0 0 30px rgba(88, 129, 87, 0.5); } /* Hold In (4s) */
-            75% { transform: scale(1); background-color: #344e41; color: #ffffff; } /* Exhale (4s) */
+        /* 1. Growing State during Inhale */
+        .breathing-circle.inhale {
+            transform: scale(1.6);
+            background-color: #a3b18a;
+            box-shadow: 0 0 35px rgba(163, 177, 138, 0.6);
+            color: #1a2219;
+        }
+
+        /* 2. Holding state at maximum expanded size */
+        .breathing-circle.hold-in {
+            transform: scale(1.6);
+            background-color: #588157;
+            box-shadow: 0 0 35px rgba(88, 129, 87, 0.6);
+            color: #f4f6f0;
+        }
+
+        /* 3. Shrinking state during Exhale */
+        .breathing-circle.exhale {
+            transform: scale(1);
+            background-color: #344e41;
+            box-shadow: 0 0 15px rgba(52, 78, 65, 0.4);
+            color: #ffffff;
+        }
+
+        /* 4. Holding state at small base size */
+        .breathing-circle.hold-out {
+            transform: scale(1);
+            background-color: var(--accent-green);
+            box-shadow: 0 0 20px rgba(140, 179, 105, 0.3);
+            color: #1a2219;
         }
 
         .breathing-guide-text {
@@ -388,6 +417,7 @@
             color: #a3b18a;
             font-weight: bold;
             text-align: center;
+            min-height: 40px; /* Prevents layout shifting during text changes */
         }
 
         /* Footer and Privacy Disclaimer */
@@ -435,12 +465,12 @@
                 <strong>Trigger points:</strong> Use this when you feel a racing heart, sudden panic, overwhelming rage, hyperventilation, or right before a confrontation. It physically forces your nervous system to calm down.
             </p>
             <p style="font-style: italic; font-size: 0.8rem; margin-bottom: 10px; color: #a3b18a;">
-                Follow the expanding circle below: Inhale (4s), Hold (4s), Exhale (4s), Hold (4s).
+                Follow the expanding and contracting circle below:
             </p>
 
             <div class="breathing-box-container">
-                <div class="breathing-circle" id="breatheText">BREATHE</div>
-                <div class="breathing-guide-text" id="breatheInstruction">Follow the pace to regulate heart rate</div>
+                <div class="breathing-circle" id="breatheCircle">BREATHE</div>
+                <div class="breathing-guide-text" id="breatheInstruction">Click the dropdown to begin pacing</div>
             </div>
         </div>
     </div>
@@ -568,7 +598,7 @@
             <p><strong>The Science:</strong> Sleeping under 6 hours a night directly cripples your brain's emotional control center.</p>
             <ul>
                 <li><strong>The Amygdala Hijack:</strong> When you are sleep-deprived, your amygdala (the brain's survival threat detector) becomes up to 60% more hyper-active. This is why small, everyday frustrations feel like catastrophic emergencies or provoke sudden outbursts of rage.</li>
-                <li><strong>Memory Consolidation:</strong> During deep sleep (REM), your brain processes the day's stress and emotional trauma. Without REM sleep, traumatic memories remain "active" and raw, directly increasing PTSD flashbacks and sleep anxiety.</li>
+                <li><strong>Memory Consoluation:</strong> During deep sleep (REM), your brain processes the day's stress and emotional trauma. Without REM sleep, traumatic memories remain "active" and raw, directly increasing PTSD flashbacks and sleep anxiety.</li>
                 <li><strong>The 10-3-2-1-0 Sleep Protocol:</strong>
                     <br>• <strong>10 hours</strong> before bed: No caffeine.
                     <br>• <strong>3 hours</strong> before bed: No heavy meals or alcohol (alcohol blocks REM sleep).
@@ -901,31 +931,40 @@
             });
         }
 
-        // Tactical Breathing Text Pacer (Paces matching the 16s CSS animation loop)
+        // Tactical Breathing Text Pacer & Dynamic Scale Handler
+        const breatheCircle = document.getElementById("breatheCircle");
         const breatheText = document.getElementById("breatheText");
         const breatheInstruction = document.getElementById("breatheInstruction");
 
         function paceBreathingCycle() {
+            // Step 1: INHALE (0s to 4s) - Circle grows smoothly to scale(1.6)
+            breatheCircle.className = "breathing-circle inhale";
             breatheText.innerText = "INHALE";
-            breatheInstruction.innerText = "Inhale deep through your nose (4 seconds)...";
+            breatheInstruction.innerText = "Breathe in slowly, expanding your lungs (4 seconds)...";
 
+            // Step 2: HOLD IN (4s to 8s) - Circle locks and holds at scale(1.6)
             setTimeout(() => {
-                breatheText.innerText = "HOLD IN";
-                breatheInstruction.innerText = "Hold that air in your lungs (4 seconds)...";
+                breatheCircle.className = "breathing-circle hold-in";
+                breatheText.innerText = "HOLD";
+                breatheInstruction.innerText = "Hold that breath. Keep your chest expanded (4 seconds)...";
             }, 4000);
 
+            // Step 3: EXHALE (8s to 12s) - Circle shrinks smoothly to scale(1)
             setTimeout(() => {
+                breatheCircle.className = "breathing-circle exhale";
                 breatheText.innerText = "EXHALE";
-                breatheInstruction.innerText = "Exhale slowly through your mouth (4 seconds)...";
+                breatheInstruction.innerText = "Exhale slowly, letting your stress escape (4 seconds)...";
             }, 8000);
 
+            // Step 4: HOLD OUT (12s to 16s) - Circle locks and holds at scale(1)
             setTimeout(() => {
-                breatheText.innerText = "HOLD OUT";
-                breatheInstruction.innerText = "Hold empty before the next breath (4 seconds)...";
+                breatheCircle.className = "breathing-circle hold-out";
+                breatheText.innerText = "HOLD EMPTY";
+                breatheInstruction.innerText = "Hold your breath empty before the next cycle (4 seconds)...";
             }, 12000);
         }
 
-        // Start pacing loop instantly
+        // Start cycle immediately and run continuously every 16 seconds
         paceBreathingCycle();
         setInterval(paceBreathingCycle, 16000);
     </script>
