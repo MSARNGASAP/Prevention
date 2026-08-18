@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MSARNG Tactical Go-Bag</title>
     <style>
-        /* Restorative Ocean-Teal Theme (Calming & Non-Threatening) */
+        /* Professional Tactical Army Theme (Calming Greens, Browns, & Gold) */
         :root {
-            --bg-color: #0a192f; /* Peaceful twilight ocean */
-            --card-bg: #172a45; /* Soft, warm Navy */
-            --accent-teal: #00b4d8; /* Restorative teal representing healing */
-            --accent-teal-hover: #0077b6;
-            --warm-gold: #f5a623; /* Warm supportive amber/gold instead of warning red */
-            --warm-gold-hover: #d97706;
-            --text-primary: #f8fafc; /* High-contrast white */
-            --text-secondary: #94a3b8; /* Soft blue-gray for paragraphs */
-            --border-color: #1e3a8a; /* Deep ocean-blue border lines */
+            --bg-color: #1a2219; /* Deep, calming tactical dark olive */
+            --card-bg: #242f23; /* Muted army green-gray card */
+            --accent-green: #8cb369; /* Soft, readable military sage */
+            --accent-green-hover: #709a50;
+            --warm-gold: #ebd56b; /* Warm Army gold for highlights and triage */
+            --warm-gold-hover: #d4be53;
+            --text-primary: #f4f6f0; /* Crisp linen white */
+            --text-secondary: #a3b19b; /* Soft olive-gray for secondary text */
+            --border-color: #384c36; /* Structured olive borders */
         }
 
         * {
@@ -46,7 +46,7 @@
             font-size: 1.6rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--accent-teal);
+            color: var(--accent-green);
             margin-bottom: 5px;
         }
 
@@ -58,7 +58,7 @@
 
         /* Immediate Action Banner (Warm Gold/Amber) */
         .emergency-banner {
-            background-color: rgba(245, 166, 35, 0.08);
+            background-color: rgba(235, 213, 107, 0.08);
             border: 2px solid var(--warm-gold);
             border-radius: 12px; /* Softer, rounded corners */
             padding: 15px;
@@ -96,7 +96,7 @@
 
         .btn-danger {
             background-color: var(--warm-gold);
-            color: #0f172a; /* High contrast dark text on gold */
+            color: #1a2219; /* High contrast dark text on gold */
         }
 
         .btn-danger:hover {
@@ -104,13 +104,13 @@
         }
 
         .btn-secondary {
-            background-color: #1e293b;
-            color: #cbd5e1;
-            border: 1px solid #334155;
+            background-color: #2d3a2c;
+            color: #d1dcd0;
+            border: 1px solid #42553f;
         }
 
         .btn-secondary:hover {
-            background-color: #0f172a;
+            background-color: #1a2219;
         }
 
         /* Section Headings */
@@ -118,7 +118,7 @@
             font-size: 1.2rem;
             margin: 30px 0 15px 0;
             padding-left: 10px;
-            border-left: 4px solid var(--accent-teal);
+            border-left: 4px solid var(--accent-green);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: var(--text-primary);
@@ -145,16 +145,16 @@
         }
 
         .accordion:after {
-            content: '+'; /* Clear, robust plus character (solves display code bugs) */
+            content: '+'; /* Clear, robust plus character */
             font-size: 1.2rem;
-            color: var(--accent-teal);
+            color: var(--accent-green);
             font-weight: bold;
         }
 
         .active {
             border-radius: 12px 12px 0 0;
             margin-bottom: 0px;
-            background-color: rgba(23, 42, 69, 0.9);
+            background-color: rgba(36, 47, 35, 0.9);
             border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
         }
 
@@ -166,7 +166,7 @@
 
         .panel {
             padding: 0 15px;
-            background-color: rgba(23, 42, 69, 0.4);
+            background-color: rgba(36, 47, 35, 0.4);
             display: none;
             overflow: hidden;
             border-left: 1px solid var(--border-color);
@@ -179,7 +179,7 @@
         /* Inside Accordion Content Cards */
         .coping-card {
             padding: 18px 5px;
-            border-bottom: 1px solid rgba(30, 58, 138, 0.4);
+            border-bottom: 1px solid rgba(56, 76, 54, 0.4);
         }
 
         .coping-card:last-child {
@@ -188,8 +188,8 @@
 
         .trigger-tag {
             display: inline-block;
-            background-color: #2563eb; /* Accessible trust blue */
-            color: #ffffff;
+            background-color: #3b533a; /* Deep tactical green */
+            color: #f4f6f0;
             font-size: 0.72rem;
             font-weight: 700;
             padding: 4px 10px;
@@ -200,8 +200,8 @@
 
         .buddy-tag {
             display: inline-block;
-            background-color: #10b981; /* Comforting emerald/lime buddy aid tag */
-            color: #0a192f;
+            background-color: var(--warm-gold); /* Warm gold buddy aid tag */
+            color: #1a2219;
             font-size: 0.72rem;
             font-weight: 800;
             padding: 4px 10px;
@@ -226,7 +226,7 @@
             padding-left: 20px;
             margin-bottom: 12px;
             font-size: 0.88rem;
-            color: #cbd5e1;
+            color: #d1dcd0;
         }
 
         .coping-card li {
@@ -236,7 +236,7 @@
         /* Directory Contact Cards */
         .contact-entry {
             padding: 18px 5px;
-            border-bottom: 1px solid rgba(30, 58, 138, 0.4);
+            border-bottom: 1px solid rgba(56, 76, 54, 0.4);
         }
 
         .contact-entry:last-child {
@@ -246,12 +246,12 @@
         .contact-name {
             font-weight: bold;
             font-size: 1rem;
-            color: #f1f5f9;
+            color: #f4f6f0;
         }
 
         .contact-title {
             font-size: 0.8rem;
-            color: var(--accent-teal); /* Soft teal highlights for job roles */
+            color: var(--accent-green); /* Soft green highlights for job roles */
             text-transform: uppercase;
             font-weight: 700;
             margin-bottom: 6px;
@@ -266,13 +266,13 @@
 
         /* High-Visibility Plain Text Contact Block */
         .contact-text-info {
-            background-color: rgba(10, 25, 47, 0.8);
-            border: 1px solid rgba(30, 58, 138, 0.6);
+            background-color: rgba(26, 34, 25, 0.8);
+            border: 1px solid rgba(56, 76, 54, 0.6);
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 12px;
             font-size: 0.82rem;
-            color: #e2e8f0;
+            color: #d1dcd0;
             word-wrap: break-word;
             word-break: break-all;
         }
@@ -289,13 +289,13 @@
 
         .contact-label {
             font-weight: bold;
-            color: #64748b;
+            color: #7d8c79;
             width: 55px;
             flex-shrink: 0;
         }
 
         .contact-value {
-            color: #cbd5e1;
+            color: #d1dcd0;
         }
 
         /* Action Buttons */
@@ -318,32 +318,33 @@
         }
 
         .btn-call {
-            background-color: var(--accent-teal);
-            color: #0a192f;
+            background-color: var(--accent-green);
+            color: #1a2219;
         }
 
         .btn-call:hover {
-            background-color: var(--accent-teal-hover);
+            background-color: var(--accent-green-hover);
             color: #ffffff;
         }
 
         .btn-email {
-            background-color: #1e293b;
-            color: #cbd5e1;
-            border: 1px solid #334155;
+            background-color: #2d3a2c;
+            color: #d1dcd0;
+            border: 1px solid #42553f;
         }
 
         .btn-email:hover {
-            background-color: #0f172a;
+            background-color: #1a2219;
         }
 
         .btn-web {
-            background-color: #0284c7;
+            background-color: #4a5c3e;
             color: #ffffff;
+            border: 1px solid #5d704d;
         }
 
         .btn-web:hover {
-            background-color: #0369a1;
+            background-color: #3b4b31;
         }
 
         /* Breathing Exercise Animation Tool */
@@ -353,38 +354,38 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            background: rgba(10, 25, 47, 0.6);
+            background: rgba(26, 34, 25, 0.6);
             border-radius: 8px;
             margin-top: 10px;
-            border: 1px solid rgba(0, 180, 216, 0.15);
+            border: 1px solid rgba(140, 179, 105, 0.15);
         }
 
         .breathing-circle {
             width: 110px;
             height: 110px;
             border-radius: 50%;
-            background-color: var(--accent-teal);
+            background-color: var(--accent-green);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             font-size: 0.85rem;
-            color: #0a192f;
+            color: #1a2219;
             animation: breatheAnimation 16s infinite ease-in-out;
-            box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
+            box-shadow: 0 0 20px rgba(140, 179, 105, 0.3);
         }
 
         @keyframes breatheAnimation {
-            0%, 100% { transform: scale(1); background-color: var(--accent-teal); } /* Hold Out (4s) */
-            25% { transform: scale(1.6); background-color: #48cae4; box-shadow: 0 0 30px rgba(72, 202, 228, 0.5); } /* Inhale (4s) */
-            50% { transform: scale(1.6); background-color: #0077b6; box-shadow: 0 0 30px rgba(0, 119, 182, 0.5); } /* Hold In (4s) */
-            75% { transform: scale(1); background-color: #03045e; color: #ffffff; } /* Exhale (4s) */
+            0%, 100% { transform: scale(1); background-color: var(--accent-green); } /* Hold Out (4s) */
+            25% { transform: scale(1.6); background-color: #a3b18a; box-shadow: 0 0 30px rgba(163, 177, 138, 0.5); } /* Inhale (4s) */
+            50% { transform: scale(1.6); background-color: #588157; box-shadow: 0 0 30px rgba(88, 129, 87, 0.5); } /* Hold In (4s) */
+            75% { transform: scale(1); background-color: #344e41; color: #ffffff; } /* Exhale (4s) */
         }
 
         .breathing-guide-text {
             margin-top: 18px;
             font-size: 0.85rem;
-            color: #90e0ef;
+            color: #a3b18a;
             font-weight: bold;
             text-align: center;
         }
@@ -400,7 +401,7 @@
         }
 
         footer strong {
-            color: #f1f5f9;
+            color: #f4f6f0;
         }
     </style>
 </head>
@@ -414,7 +415,7 @@
     <!-- 🚨 IMMEDIATE CRISIS TRIAGE (WARM GOLD BANNER) -->
     <div class="emergency-banner">
         <h2>Need Someone to Talk To Right Now?</h2>
-        <p style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 12px;">
+        <p style="font-size: 0.85rem; color: #d1dcd0; margin-bottom: 12px;">
             Immediate, 100% confidential support outside command lines.
         </p>
         <div class="emergency-buttons">
@@ -433,7 +434,7 @@
             <p>
                 <strong>Trigger points:</strong> Use this when you feel a racing heart, sudden panic, overwhelming rage, hyperventilation, or right before a confrontation. It physically forces your nervous system to calm down.
             </p>
-            <p style="font-style: italic; font-size: 0.8rem; margin-bottom: 10px; color: #90e0ef;">
+            <p style="font-style: italic; font-size: 0.8rem; margin-bottom: 10px; color: #a3b18a;">
                 Follow the expanding circle below: Inhale (4s), Hold (4s), Exhale (4s), Hold (4s).
             </p>
 
@@ -451,7 +452,7 @@
             <p>
                 <strong>Trigger points:</strong> Use this when trapped in anxiety-driven thought spirals, flashbacks, feeling detached from reality, or experiencing intrusive "what-if" thoughts. It pulls your brain back into the physical room.
             </p>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
+            <p style="font-size: 0.85rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
                 Stop, look around, and actively identify:<br><br>
                 👀 <strong>5 things</strong> you can see around you.<br>
                 ✋ <strong>4 things</strong> you can physically touch.<br>
@@ -469,7 +470,7 @@
             <p>
                 <strong>Trigger points:</strong> Use this when you are feeling crushed by relationship conflicts, bills, work stress, family demands, or sudden changes that feel completely out of your hands. It stops you from wasting energy on what you can't fix.
             </p>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
+            <p style="font-size: 0.85rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
                 Take a deep breath and focus ONLY on Column A:<br><br>
                 🟢 <strong>A: What is in MY control:</strong> My effort, how I choose to speak to others, my sleep and physical routine, setting my personal boundaries, making a household budget, and deciding to ask for help.<br><br>
                 🔴 <strong>B: What is OUT of my control:</strong> How other people act or feel, past mistakes, administrative delays, unexpected bills, the economy, and decisions made by commanders, bosses, or family members.
@@ -484,7 +485,7 @@
             <p>
                 <strong>Trigger points:</strong> Use this when you are convinced a bad situation (like failing an evaluation or a relationship fight) means your entire career or life is instantly over.
             </p>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
+            <p style="font-size: 0.85rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
                 Answer these 3 logic questions directly to reset your brain:<br><br>
                 1. <em>What is the worst-case scenario?</em> (Let yourself face it)<br>
                 2. <em>What is the absolute best-case scenario?</em> (Let yourself imagine hope)<br>
@@ -500,7 +501,7 @@
             <p>
                 <strong>Trigger points:</strong> Use this when you are about to send a text you might regret, lash out at your spouse/command, turn to alcohol, or make any fast, self-destructive decision during high stress.
             </p>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
+            <p style="font-size: 0.85rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
                 Follow this simple block protocol to bypass sudden emotional impulses:<br><br>
                 🛑 <strong>S - Stop:</strong> Pause literally whatever you are doing. Do not speak. Do not type. Freeze for a moment.<br><br>
                 🌬️ <strong>T - Take a Breath:</strong> Do one slow deep breath (inhale 4 seconds, exhale 4 seconds) to physically interrupt your flight-or-fight response.<br><br>
@@ -517,7 +518,7 @@
             <p>
                 <strong>Trigger points:</strong> Use this when you notice a sudden shift in your mood—like feelings of deep depression, severe irritation, or overall exhaustion—and you aren't completely sure why you're feeling that way.
             </p>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
+            <p style="font-size: 0.85rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
                 Before letting your mind spiral into dark thoughts, stop and check if a basic physical need is neglected:<br><br>
                 🍔 <strong>H - Hungry:</strong> Have you eaten in the last 4-5 hours? Low blood sugar mimics clinical anxiety and extreme irritability.<br><br>
                 😡 <strong>A - Angry:</strong> Are you carrying unresolved anger from a conversation or event earlier in the day? Deal with the root cause, not the person in front of you.<br><br>
@@ -534,7 +535,7 @@
             <p>
                 <strong>Trigger points:</strong> Use this when you notice a battle buddy showing warning signs (withdrawal, giving away possessions, talking about hopeless futures, sudden mood swings, or extreme anger). 
             </p>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; padding: 5px;">
+            <p style="font-size: 0.85rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
                 Remember the Army's <strong>A.C.E.</strong> framework—it is simple, effective, and saves lives:<br><br>
                 🗣️ <strong>A - Ask:</strong> Ask the question directly. Don't beat around the bush. Say: <em>"Hey man, I've noticed you've been having a tough time lately. Are you thinking about killing yourself?"</em> (Asking directly does NOT put the idea in their head; it offers a lifeline).<br><br>
                 🤝 <strong>C - Care:</strong> Listen without judging them. Don't lecture them or tell them how good they have it. Actively listen and control your own reaction. Validate that they are going through a hard time, and say: <em>"I'm here with you. We'll get through this together."</em><br><br>
@@ -604,11 +605,11 @@
             <div class="contact-title">Director of Psychological Health (DPH)</div>
             <div class="contact-desc">Offers short-term solution-focused counseling (3-5 sessions), assessments, and secure community referrals.</div>
             <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-896-8480</span></div>
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-313-4534</span></div>
                 <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">fameika.a.thomas.civ@army.mil</span></div>
             </div>
             <div class="contact-actions">
-                <a href="tel:6018968480" class="btn-call">Call Now</a>
+                <a href="tel:6013134534" class="btn-call">Call Now</a>
                 <a href="mailto:fameika.a.thomas.civ@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -617,11 +618,11 @@
             <div class="contact-title">Tupelo Behavioral Health Counselor (BH)</div>
             <div class="contact-desc">Localized behavioral health assessment and support counseling in Northern MS.</div>
             <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-891-4462</span></div>
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-4328</span></div>
                 <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">leslie.c.bensieck.civ@army.mil</span></div>
             </div>
             <div class="contact-actions">
-                <a href="tel:6628914462" class="btn-call">Call Now</a>
+                <a href="tel:6013874328" class="btn-call">Call Now</a>
                 <a href="mailto:leslie.c.bensieck.civ@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -630,11 +631,11 @@
             <div class="contact-title">Camp McCain Behavioral Health Counselor (BH)</div>
             <div class="contact-desc">Localized behavioral health assessment and support counseling around Camp McCain.</div>
             <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-294-0095</span></div>
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-6084</span></div>
                 <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">hiawatha.f.sanford.civ@army.mil</span></div>
             </div>
             <div class="contact-actions">
-                <a href="tel:6622940095" class="btn-call">Call Now</a>
+                <a href="tel:6013876084" class="btn-call">Call Now</a>
                 <a href="mailto:hiawatha.f.sanford.civ@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -643,11 +644,11 @@
             <div class="contact-title">Camp Shelby Behavioral Health Counselor (BH)</div>
             <div class="contact-desc">Localized behavioral health assessment and support counseling around Camp Shelby.</div>
             <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-896-8480</span></div>
+                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-6703</span></div>
                 <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">james.e.coleman125.civ@army.mil</span></div>
             </div>
             <div class="contact-actions">
-                <a href="tel:6018968480" class="btn-call">Call Now</a>
+                <a href="tel:6013876703" class="btn-call">Call Now</a>
                 <a href="mailto:james.e.coleman125.civ@army.mil" class="btn-email">Email</a>
             </div>
         </div>
@@ -656,7 +657,7 @@
     <!-- Confidential Spiritual Support (Chaplains) Accordion -->
     <button class="accordion">Confidential Chaplain Support</button>
     <div class="panel">
-        <p style="font-size: 0.78rem; color: #a7f3d0; padding: 10px 5px 0 5px; font-weight: bold;">
+        <p style="font-size: 0.78rem; color: #ebd56b; padding: 10px 5px 0 5px; font-weight: bold;">
             ⚠️ NOTE: Chaplains hold 100% absolute confidentiality. They do not report to the chain of command.
         </p>
         <div class="contact-entry">
@@ -843,7 +844,7 @@
     <!-- External Confidential Counselors Accordion -->
     <button class="accordion">External Confidential Counselors</button>
     <div class="panel">
-        <p style="font-size: 0.78rem; color: #a7f3d0; padding: 10px 5px 0 5px; font-weight: bold;">
+        <p style="font-size: 0.78rem; color: #ebd56b; padding: 10px 5px 0 5px; font-weight: bold;">
             ⚠️ NOTE: These external agencies provide counseling and non-medical treatment separate from command visibility.
         </p>
         <div class="contact-entry">
