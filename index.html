@@ -31,7 +31,7 @@
             color: var(--text-primary);
             line-height: 1.5;
             padding: 15px;
-            max-width: 480px; /* Compact mobile width for perfect phone scaling */
+            max-width: 1000px; /* Expands dynamically on desktop, centers automatically */
             margin: 0 auto;
         }
 
@@ -43,7 +43,7 @@
         }
 
         header h1 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--accent-green);
@@ -51,7 +51,7 @@
         }
 
         header p {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             font-weight: 500;
         }
@@ -60,14 +60,14 @@
         .emergency-banner {
             background-color: rgba(235, 213, 107, 0.08);
             border: 2px solid var(--warm-gold);
-            border-radius: 12px; /* Softer, rounded corners */
-            padding: 15px;
+            border-radius: 12px;
+            padding: 20px;
             margin-bottom: 25px;
             text-align: center;
         }
 
         .emergency-banner h2 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--warm-gold);
             margin-bottom: 10px;
             text-transform: uppercase;
@@ -77,7 +77,15 @@
         .emergency-buttons {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 10px;
+            gap: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 600px) {
+            .emergency-buttons {
+                grid-template-columns: 1fr 1fr; /* Split side-by-side on larger screens */
+            }
         }
 
         .btn {
@@ -96,7 +104,7 @@
 
         .btn-danger {
             background-color: var(--warm-gold);
-            color: #1a2219; /* High contrast dark text on gold */
+            color: #1a2219;
         }
 
         .btn-danger:hover {
@@ -115,8 +123,8 @@
 
         /* Section Headings */
         .section-title {
-            font-size: 1.2rem;
-            margin: 30px 0 15px 0;
+            font-size: 1.3rem;
+            margin: 35px 0 15px 0;
             padding-left: 10px;
             border-left: 4px solid var(--accent-green);
             text-transform: uppercase;
@@ -129,13 +137,13 @@
             background-color: var(--card-bg);
             color: var(--text-primary);
             cursor: pointer;
-            padding: 16px;
+            padding: 16px 20px;
             width: 100%;
             text-align: left;
             border: 1px solid var(--border-color);
-            border-radius: 12px; /* Soft, highly comforting curves */
+            border-radius: 12px;
             outline: none;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: bold;
             transition: background-color 0.2s, border-radius 0.2s;
             margin-bottom: 10px;
@@ -145,8 +153,8 @@
         }
 
         .accordion:after {
-            content: '+'; /* Clear, robust plus character */
-            font-size: 1.2rem;
+            content: '+';
+            font-size: 1.3rem;
             color: var(--accent-green);
             font-weight: bold;
         }
@@ -159,14 +167,14 @@
         }
 
         .active:after {
-            content: '-'; /* Clear standard hyphen character */
-            font-size: 1.4rem;
+            content: '-';
+            font-size: 1.5rem;
             color: var(--text-secondary);
         }
 
         .panel {
             padding: 0 15px;
-            background-color: rgba(36, 47, 35, 0.4);
+            background-color: rgba(36, 47, 35, 0.2);
             display: none;
             overflow: hidden;
             border-left: 1px solid var(--border-color);
@@ -176,19 +184,37 @@
             margin-bottom: 15px;
         }
 
-        /* Inside Accordion Content Cards */
-        .coping-card {
-            padding: 18px 5px;
-            border-bottom: 1px solid rgba(56, 76, 54, 0.4);
+        /* Responsive Grid Container Inside Accordion Panels */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            padding: 15px 0;
         }
 
-        .coping-card:last-child {
-            border-bottom: none;
+        /* Responsive Desktop Breakpoint: Forces Cards Side-by-Side */
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        /* Restructured Cards (Coping Cards & Directory Entries) */
+        .coping-card, .contact-entry {
+            background-color: rgba(26, 34, 25, 0.6);
+            border: 1px solid rgba(56, 76, 54, 0.6);
+            border-radius: 10px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Keeps bottom elements/buttons perfectly aligned */
+            height: 100%;
         }
 
         .trigger-tag {
             display: inline-block;
-            background-color: #3b533a; /* Deep tactical green */
+            background-color: #3b533a;
             color: #f4f6f0;
             font-size: 0.72rem;
             font-weight: 700;
@@ -196,11 +222,12 @@
             border-radius: 12px;
             margin-bottom: 12px;
             text-transform: uppercase;
+            align-self: flex-start;
         }
 
         .buddy-tag {
             display: inline-block;
-            background-color: var(--warm-gold); /* Warm gold buddy aid tag */
+            background-color: var(--warm-gold);
             color: #1a2219;
             font-size: 0.72rem;
             font-weight: 800;
@@ -208,6 +235,7 @@
             border-radius: 12px;
             margin-bottom: 12px;
             text-transform: uppercase;
+            align-self: flex-start;
         }
 
         .coping-card h3 {
@@ -233,44 +261,36 @@
             margin-bottom: 8px;
         }
 
-        /* Directory Contact Cards */
-        .contact-entry {
-            padding: 18px 5px;
-            border-bottom: 1px solid rgba(56, 76, 54, 0.4);
-        }
-
-        .contact-entry:last-child {
-            border-bottom: none;
-        }
-
         .contact-name {
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: #f4f6f0;
+            margin-bottom: 2px;
         }
 
         .contact-title {
             font-size: 0.8rem;
-            color: var(--accent-green); /* Soft green highlights for job roles */
+            color: var(--accent-green);
             text-transform: uppercase;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
             letter-spacing: 0.5px;
         }
 
         .contact-desc {
             font-size: 0.85rem;
             color: var(--text-secondary);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            flex-grow: 1; /* Pushes content down so buttons stay aligned */
         }
 
         /* High-Visibility Plain Text Contact Block */
         .contact-text-info {
-            background-color: rgba(26, 34, 25, 0.8);
+            background-color: rgba(26, 34, 25, 0.9);
             border: 1px solid rgba(56, 76, 54, 0.6);
             border-radius: 8px;
             padding: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-size: 0.82rem;
             color: #d1dcd0;
             word-wrap: break-word;
@@ -303,6 +323,7 @@
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
+            margin-top: auto;
         }
 
         .btn-call, .btn-email, .btn-web {
@@ -358,6 +379,7 @@
             border-radius: 12px;
             margin-top: 15px;
             border: 1px solid rgba(140, 179, 105, 0.15);
+            width: 100%;
         }
 
         /* JS-Driven Smooth Transition properties */
@@ -417,7 +439,7 @@
             color: #a3b18a;
             font-weight: bold;
             text-align: center;
-            min-height: 40px; /* Prevents layout shifting during text changes */
+            min-height: 40px;
         }
 
         /* Footer, Disclaimer, and Privacy Elements */
@@ -434,20 +456,20 @@
             background-color: rgba(235, 213, 107, 0.03);
             border: 1px solid rgba(56, 76, 54, 0.5);
             border-radius: 8px;
-            padding: 12px;
+            padding: 15px;
             margin-bottom: 20px;
             text-align: left;
-            font-size: 0.72rem;
-            line-height: 1.4;
+            font-size: 0.75rem;
+            line-height: 1.5;
             color: #a3b19b;
         }
 
         .disclaimer-title {
             font-weight: bold;
             color: var(--warm-gold);
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             text-transform: uppercase;
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             letter-spacing: 0.5px;
         }
 
@@ -480,118 +502,132 @@
 
     <button class="accordion">1. Tactical Breathing (Panic & Anger)</button>
     <div class="panel">
-        <div class="coping-card">
-            <span class="trigger-tag">WHEN TO USE: Acute Panic or Extreme Anger</span>
-            <p>
-                <strong>Trigger points:</strong> Use this when you feel a racing heart, sudden panic, overwhelming rage, hyperventilation, or right before a confrontation. It physically forces your nervous system to calm down.
-            </p>
-            <p style="font-style: italic; font-size: 0.8rem; margin-bottom: 10px; color: #a3b18a;">
-                Follow the expanding and contracting circle below:
-            </p>
+        <div class="grid-container">
+            <div class="coping-card">
+                <span class="trigger-tag">WHEN TO USE: Acute Panic or Extreme Anger</span>
+                <p>
+                    <strong>Trigger points:</strong> Use this when you feel a racing heart, sudden panic, overwhelming rage, hyperventilation, or right before a confrontation. It physically forces your nervous system to calm down.
+                </p>
+                <p style="font-style: italic; font-size: 0.8rem; margin-bottom: 10px; color: #a3b18a;">
+                    Follow the expanding and contracting circle below:
+                </p>
 
-            <div class="breathing-box-container">
-                <div class="breathing-circle" id="breatheCircle"><span id="breatheText">BREATHE</span></div>
-                <div class="breathing-guide-text" id="breatheInstruction">Click the dropdown to begin pacing</div>
+                <div class="breathing-box-container">
+                    <div class="breathing-circle" id="breatheCircle"><span id="breatheText">BREATHE</span></div>
+                    <div class="breathing-guide-text" id="breatheInstruction">Click the dropdown to begin pacing</div>
+                </div>
             </div>
         </div>
     </div>
 
     <button class="accordion">2. 5-4-3-2-1 Grounding (Spirals & Flashbacks)</button>
     <div class="panel">
-        <div class="coping-card">
-            <span class="trigger-tag">WHEN TO USE: Mental Spirals or Flashbacks</span>
-            <p>
-                <strong>Trigger points:</strong> Use this when trapped in anxiety-driven thought spirals, flashbacks, feeling detached from reality, or experiencing intrusive "what-if" thoughts. It pulls your brain back into the physical room.
-            </p>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
-                Stop, look around, and actively identify:<br><br>
-                👀 <strong>5 things</strong> you can see around you.<br>
-                ✋ <strong>4 things</strong> you can physically touch.<br>
-                👂 <strong>3 things</strong> you can hear right now.<br>
-                👃 <strong>2 things</strong> you can smell.<br>
-                👅 <strong>1 thing</strong> you can taste.
-            </p>
+        <div class="grid-container">
+            <div class="coping-card">
+                <span class="trigger-tag">WHEN TO USE: Mental Spirals or Flashbacks</span>
+                <p>
+                    <strong>Trigger points:</strong> Use this when trapped in anxiety-driven thought spirals, flashbacks, feeling detached from reality, or experiencing intrusive "what-if" thoughts. It pulls your brain back into the physical room.
+                </p>
+                <p style="font-size: 0.88rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
+                    Stop, look around, and actively identify:<br><br>
+                    👀 <strong>5 things</strong> you can see around you.<br>
+                    ✋ <strong>4 things</strong> you can physically touch.<br>
+                    👂 <strong>3 things</strong> you can hear right now.<br>
+                    👃 <strong>2 things</strong> you can smell.<br>
+                    👅 <strong>1 thing</strong> you can taste.
+                </p>
+            </div>
         </div>
     </div>
 
     <button class="accordion">3. Control the Controllables (Life, Family & Work Stress)</button>
     <div class="panel">
-        <div class="coping-card">
-            <span class="trigger-tag">WHEN TO USE: Feeling Overwhelmed by Life, Work, or Family</span>
-            <p>
-                <strong>Trigger points:</strong> Use this when you are feeling crushed by relationship conflicts, bills, work stress, family demands, or sudden changes that feel completely out of your hands. It stops you from wasting energy on what you can't fix.
-            </p>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
-                Take a deep breath and focus ONLY on Column A:<br><br>
-                🟢 <strong>A: What is in MY control:</strong> My effort, how I choose to speak to others, my sleep and physical routine, setting my personal boundaries, making a household budget, and deciding to ask for help.<br><br>
-                🔴 <strong>B: What is OUT of my control:</strong> How other people act or feel, past mistakes, administrative delays, unexpected bills, the economy, and decisions made by commanders, bosses, or family members.
-            </p>
+        <div class="grid-container">
+            <div class="coping-card">
+                <span class="trigger-tag">WHEN TO USE: Feeling Overwhelmed by Life, Work, or Family</span>
+                <p>
+                    <strong>Trigger points:</strong> Use this when you are feeling crushed by relationship conflicts, bills, work stress, family demands, or sudden changes that feel completely out of your hands. It stops you from wasting energy on what you can't fix.
+                </p>
+                <p style="font-size: 0.88rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
+                    Take a deep breath and focus ONLY on Column A:<br><br>
+                    🟢 <strong>A: What is in MY control:</strong> My effort, how I choose to speak to others, my sleep and physical routine, setting my personal boundaries, making a household budget, and deciding to ask for help.<br><br>
+                    🔴 <strong>B: What is OUT of my control:</strong> How other people act or feel, past mistakes, administrative delays, unexpected bills, the economy, and decisions made by commanders, bosses, or family members.
+                </p>
+            </div>
         </div>
     </div>
 
     <button class="accordion">4. Break Catastrophic Thinking (De-escalate Crisis)</button>
     <div class="panel">
-        <div class="coping-card">
-            <span class="trigger-tag">WHEN TO USE: "Worst-Case" Catastrophizing</span>
-            <p>
-                <strong>Trigger points:</strong> Use this when you are convinced a bad situation (like failing an evaluation or a relationship fight) means your entire career or life is instantly over.
-            </p>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
-                Answer these 3 logic questions directly to reset your brain:<br><br>
-                1. <em>What is the worst-case scenario?</em> (Let yourself face it)<br>
-                2. <em>What is the absolute best-case scenario?</em> (Let yourself imagine hope)<br>
-                3. <em>What is the MOST LIKELY scenario?</em> (The realistic middle ground you can prepare for)
-            </p>
+        <div class="grid-container">
+            <div class="coping-card">
+                <span class="trigger-tag">WHEN TO USE: "Worst-Case" Catastrophizing</span>
+                <p>
+                    <strong>Trigger points:</strong> Use this when you are convinced a bad situation (like failing an evaluation or a relationship fight) means your entire career or life is instantly over.
+                </p>
+                <p style="font-size: 0.88rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
+                    Answer these 3 logic questions directly to reset your brain:<br><br>
+                    1. <em>What is the worst-case scenario?</em> (Let yourself face it)<br>
+                    2. <em>What is the absolute best-case scenario?</em> (Let yourself imagine hope)<br>
+                    3. <em>What is the MOST LIKELY scenario?</em> (The realistic middle ground you can prepare for)
+                </p>
+            </div>
         </div>
     </div>
 
     <button class="accordion">5. The S.T.O.P. Method (Impulse Control & Conflict)</button>
     <div class="panel">
-        <div class="coping-card">
-            <span class="trigger-tag">WHEN TO USE: Urge to React with Anger, Text, or Destructive Habits</span>
-            <p>
-                <strong>Trigger points:</strong> Use this when you are about to send a text you might regret, lash out at your spouse/command, turn to alcohol, or make any fast, self-destructive decision during high stress.
-            </p>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
-                Follow this simple block protocol to bypass sudden emotional impulses:<br><br>
-                🛑 <strong>S - Stop:</strong> Pause practically whatever you are doing. Do not speak. Do not type. Freeze for a moment.<br><br>
-                🌬️ <strong>T - Take a Breath:</strong> Do one slow deep breath (inhale 4 seconds, exhale 4 seconds) to physically interrupt your flight-or-fight response.<br><br>
-                🧠 <strong>O - Observe:</strong> Ask yourself: "What am I physically feeling right now? Is this anger, fear, or pride? Will my immediate reaction make my life better or worse?"<br><br>
-                🚶 <strong>P - Proceed Mindfully:</strong> Choose your next step based on logic, not emotion. If needed, step away from the situation entirely before taking action.
-            </p>
+        <div class="grid-container">
+            <div class="coping-card">
+                <span class="trigger-tag">WHEN TO USE: Urge to React with Anger, Text, or Destructive Habits</span>
+                <p>
+                    <strong>Trigger points:</strong> Use this when you are about to send a text you might regret, lash out at your spouse/command, turn to alcohol, or make any fast, self-destructive decision during high stress.
+                </p>
+                <p style="font-size: 0.88rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
+                    Follow this simple block protocol to bypass sudden emotional impulses:<br><br>
+                    🛑 <strong>S - Stop:</strong> Pause practically whatever you are doing. Do not speak. Do not type. Freeze for a moment.<br><br>
+                    🌬️ <strong>T - Take a Breath:</strong> Do one slow deep breath (inhale 4 seconds, exhale 4 seconds) to physically interrupt your flight-or-fight response.<br><br>
+                    🧠 <strong>O - Observe:</strong> Ask yourself: "What am I physically feeling right now? Is this anger, fear, or pride? Will my immediate reaction make my life better or worse?"<br><br>
+                    🚶 <strong>P - Proceed Mindfully:</strong> Choose your next step based on logic, not emotion. If needed, step away from the situation entirely before taking action.
+                </p>
+            </div>
         </div>
     </div>
 
     <button class="accordion">6. The H.A.L.T. Check (Unexplained Mood Drops)</button>
     <div class="panel">
-        <div class="coping-card">
-            <span class="trigger-tag">WHEN TO USE: Unexplained Anger, Sadness, or Low Energy</span>
-            <p>
-                <strong>Trigger points:</strong> Use this when you notice a sudden shift in your mood—like feelings of deep depression, severe irritation, or overall exhaustion—and you aren't completely sure why you're feeling that way.
-            </p>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
-                Before letting your mind spiral into dark thoughts, stop and check if a basic physical need is neglected:<br><br>
-                🍔 <strong>H - Hungry:</strong> Have you eaten in the last 4-5 hours? Low blood sugar mimics clinical anxiety and extreme irritability.<br><br>
-                😡 <strong>A - Angry:</strong> Are you carrying unresolved anger from a conversation or event earlier in the day? Deal with the root cause, not the person in front of you.<br><br>
-                👥 <strong>L - Lonely:</strong> Have you isolated yourself? Reach out, text a buddy, or just go sit in a room with family or other people to break the vacuum.<br><br>
-                💤 <strong>T - Tired:</strong> Are you operating on less than 6 hours of sleep? Severe fatigue shuts down your logical brain, amplifying despair.
-            </p>
+        <div class="grid-container">
+            <div class="coping-card">
+                <span class="trigger-tag">WHEN TO USE: Unexplained Anger, Sadness, or Low Energy</span>
+                <p>
+                    <strong>Trigger points:</strong> Use this when you notice a sudden shift in your mood—like feelings of deep depression, severe irritation, or overall exhaustion—and you aren't completely sure why you're feeling that way.
+                </p>
+                <p style="font-size: 0.88rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
+                    Before letting your mind spiral into dark thoughts, stop and check if a basic physical need is neglected:<br><br>
+                    🍔 <strong>H - Hungry:</strong> Have you eaten in the last 4-5 hours? Low blood sugar mimics clinical anxiety and extreme irritability.<br><br>
+                    😡 <strong>A - Angry:</strong> Are you carrying unresolved anger from a conversation or event earlier in the day? Deal with the root cause, not the person in front of you.<br><br>
+                    👥 <strong>L - Lonely:</strong> Have you isolated yourself? Reach out, text a buddy, or just go sit in a room with family or other people to break the vacuum.<br><br>
+                    💤 <strong>T - Tired:</strong> Are you operating on less than 6 hours of sleep? Severe fatigue shuts down your logical brain, amplifying despair.
+                </p>
+            </div>
         </div>
     </div>
 
     <button class="accordion">7. Help a Buddy (ACE Peer Support Guidelines)</button>
     <div class="panel">
-        <div class="coping-card">
-            <span class="buddy-tag">BUDDY AID: How to Step in for a Battle Buddy</span>
-            <p>
-                <strong>Trigger points:</strong> Use this when you notice a battle buddy showing warning signs (withdrawal, giving away possessions, talking about hopeless futures, sudden mood swings, or extreme anger). 
-            </p>
-            <p style="font-size: 0.85rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
-                Remember the Army's <strong>A.C.E.</strong> framework—it is simple, effective, and saves lives:<br><br>
-                🗣️ <strong>A - Ask:</strong> Ask the question directly. Don't beat around the bush. Say: <em>"Hey man, I've noticed you've been having a tough time lately. Are you thinking about killing yourself?"</em> (Asking directly does NOT put the idea in their head; it offers a lifeline).<br><br>
-                🤝 <strong>C - Care:</strong> Listen without judging them. Don't lecture them or tell them how good they have it. Actively listen and control your own reaction. Validate that they are going through a hard time, and say: <em>"I'm here with you. We'll get through this together."</em><br><br>
-                🚗 <strong>E - Escort:</strong> Never leave them alone. Do not send them home by themselves or expect them to drive to help. Escort them directly to one of the resources listed on this site, call 988 with them, or take them to the nearest emergency room.
-            </p>
+        <div class="grid-container">
+            <div class="coping-card">
+                <span class="buddy-tag">BUDDY AID: How to Step in for a Battle Buddy</span>
+                <p>
+                    <strong>Trigger points:</strong> Use this when you notice a battle buddy showing warning signs (withdrawal, giving away possessions, talking about hopeless futures, sudden mood swings, or extreme anger).
+                </p>
+                <p style="font-size: 0.88rem; line-height: 1.6; color: #d1dcd0; padding: 5px;">
+                    Remember the Army's <strong>A.C.E.</strong> framework—it is simple, effective, and saves lives:<br><br>
+                    🗣️ <strong>A - Ask:</strong> Ask the question directly. Say: <em>"Hey man, I've noticed you've been having a tough time lately. Are you thinking about killing yourself?"</em><br><br>
+                    🤝 <strong>C - Care:</strong> Listen without judging them. Validate that they are going through a hard time, and say: <em>"I'm here with you. We'll get through this together."</em><br><br>
+                    🚗 <strong>E - Escort:</strong> Never leave them alone. Escort them directly to one of the resources listed on this site, call 988 with them, or take them to the nearest emergency room.
+                </p>
+            </div>
         </div>
     </div>
 
@@ -601,46 +637,52 @@
 
     <button class="accordion">The Neurobiology of Sweat (Exercise vs. Anxiety)</button>
     <div class="panel">
-        <div class="coping-card">
-            <span class="trigger-tag">TARGET: Low Mood, Anxiety, & Brain Fog</span>
-            <p><strong>The Science:</strong> Physical exercise is not about looking good; it is a neurological system maintenance protocol.</p>
-            <ul>
-                <li><strong>Cortisol Flush:</strong> High stress dumps cortisol and adrenaline into your bloodstream, leaving you jittery and anxious. Intense cardiovascular activity (elevating your heart rate for 20+ mins) physically flushes these chemicals out of your organs and muscles.</li>
-                <li><strong>BDNF Production:</strong> Elevating your heart rate releases <em>Brain-Derived Neurotrophic Factor</em> (BDNF). This chemical acts like fertilizer for your brain, repairing cells damaged by chronic stress and improving memory, learning, and focus.</li>
-                <li><strong>Endorphin Release:</strong> Heavy resistance training or sprints force the release of neurotransmitters (endorphins and dopamine) that bind to the opiate receptors in your brain, lowering pain and raising your mood naturally.</li>
-            </ul>
+        <div class="grid-container">
+            <div class="coping-card">
+                <span class="trigger-tag">TARGET: Low Mood, Anxiety, & Brain Fog</span>
+                <p><strong>The Science:</strong> Physical exercise is not about looking good; it is a neurological system maintenance protocol.</p>
+                <ul>
+                    <li><strong>Cortisol Flush:</strong> High stress dumps cortisol and adrenaline into your bloodstream, leaving you jittery and anxious. Intense cardiovascular activity (elevating your heart rate for 20+ mins) physically flushes these chemicals out of your organs and muscles.</li>
+                    <li><strong>BDNF Production:</strong> Elevating your heart rate releases <em>Brain-Derived Neurotrophic Factor</em> (BDNF). This chemical acts like fertilizer for your brain, repairing cells damaged by chronic stress and improving memory, learning, and focus.</li>
+                    <li><strong>Endorphin Release:</strong> Heavy resistance training or sprints force the release of neurotransmitters (endorphins and dopamine) that bind to the opiate receptors in your brain, lowering pain and raising your mood naturally.</li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <button class="accordion">The Amygdala Sleep Shield (PTSD & Rage Prevention)</button>
     <div class="panel">
-        <div class="coping-card">
-            <span class="trigger-tag">TARGET: Irritability, Anger, & Trauma Recurrence</span>
-            <p><strong>The Science:</strong> Sleeping under 6 hours a night directly cripples your brain's emotional control center.</p>
-            <ul>
-                <li><strong>The Amygdala Hijack:</strong> When you are sleep-deprived, your amygdala (the brain's survival threat detector) becomes up to 60% more hyper-active. This is why small, everyday frustrations feel like catastrophic emergencies or provoke sudden outbursts of rage.</li>
-                <li><strong>Memory Consolidation:</strong> During deep sleep (REM), your brain processes the day's stress and emotional trauma. Without REM sleep, traumatic memories remain "active" and raw, directly increasing PTSD flashbacks and sleep anxiety.</li>
-                <li><strong>The 10-3-2-1-0 Sleep Protocol:</strong>
-                    <br>• <strong>10 hours</strong> before bed: No caffeine.
-                    <br>• <strong>3 hours</strong> before bed: No heavy meals or alcohol (alcohol blocks REM sleep).
-                    <br>• <strong>2 hours</strong> before bed: No work.
-                    <br>• <strong>1 hour</strong> before bed: No screens/blue light.
-                    <br>• <strong>0:</strong> The number of times you should hit snooze in the morning.
-                </li>
-            </ul>
+        <div class="grid-container">
+            <div class="coping-card">
+                <span class="trigger-tag">TARGET: Irritability, Anger, & Trauma Recurrence</span>
+                <p><strong>The Science:</strong> Sleeping under 6 hours a night directly cripples your brain's emotional control center.</p>
+                <ul>
+                    <li><strong>The Amygdala Hijack:</strong> When you are sleep-deprived, your amygdala (the brain's survival threat detector) becomes up to 60% more hyper-active. This is why small, everyday frustrations feel like catastrophic emergencies or provoke sudden outbursts of rage.</li>
+                    <li><strong>Memory Consolidation:</strong> During deep sleep (REM), your brain processes the day's stress and emotional trauma. Without REM sleep, traumatic memories remain "active" and raw, directly increasing PTSD flashbacks and sleep anxiety.</li>
+                    <li><strong>The 10-3-2-1-0 Sleep Protocol:</strong>
+                        <br>• <strong>10 hours</strong> before bed: No caffeine.
+                        <br>• <strong>3 hours</strong> before bed: No heavy meals or alcohol (alcohol blocks REM sleep).
+                        <br>• <strong>2 hours</strong> before bed: No work.
+                        <br>• <strong>1 hour</strong> before bed: No screens/blue light.
+                        <br>• <strong>0:</strong> The number of times you should hit snooze in the morning.
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <button class="accordion">Hydration Triage (Anxiety Mimicry)</button>
     <div class="panel">
-        <div class="coping-card">
-            <span class="trigger-tag">TARGET: Physical Jitters & Panic Attacks</span>
-            <p><strong>The Science:</strong> Mild dehydration mimics and triggers physical panic attacks.</p>
-            <ul>
-                <li><strong>The 1.5% Threshold:</strong> As little as 1.5% dehydration reduces alertness, causes brain fog, and increases fatigue.</li>
-                <li><strong>Vagus Nerve Stimulation:</strong> Dehydration causes your blood volume to drop, which forces your heart to beat faster to pump blood. This elevated heart rate is detected by your brain as an emergency, initiating a physical panic response (shaking, dry mouth, rapid breathing).</li>
-                <li><strong>Triage Step:</strong> The moment you feel a panic attack or major anxiety spiral beginning, drink 16-20 ounces of cold water immediately before executing your Tactical Breathing cycle.</li>
-            </ul>
+        <div class="grid-container">
+            <div class="coping-card">
+                <span class="trigger-tag">TARGET: Physical Jitters & Panic Attacks</span>
+                <p><strong>The Science:</strong> Mild dehydration mimics and triggers physical panic attacks.</p>
+                <ul>
+                    <li><strong>The 1.5% Threshold:</strong> As little as 1.5% dehydration reduces alertness, causes brain fog, and increases fatigue.</li>
+                    <li><strong>Vagus Nerve Stimulation:</strong> Dehydration causes your blood volume to drop, which forces your heart to beat faster to pump blood. This elevated heart rate is detected by your brain as an emergency, initiating a physical panic response (shaking, dry mouth, rapid breathing).</li>
+                    <li><strong>Triage Step:</strong> The moment you feel a panic attack or major anxiety spiral beginning, drink 16-20 ounces of cold water immediately before executing your Tactical Breathing cycle.</li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -651,56 +693,66 @@
     <!-- Mental Health & Counseling Accordion -->
     <button class="accordion">Mental Health & Counseling</button>
     <div class="panel">
-        <div class="contact-entry">
-            <div class="contact-name">Fameika Thomas, LCSW</div>
-            <div class="contact-title">Director of Psychological Health (DPH)</div>
-            <div class="contact-desc">Offers short-term solution-focused counseling (3-5 sessions), assessments, and secure community referrals.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-313-4534</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">fameika.a.thomas.civ@army.mil</span></div>
+        <div class="grid-container">
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">Fameika Thomas, LCSW</div>
+                    <div class="contact-title">Director of Psychological Health (DPH)</div>
+                    <div class="contact-desc">Offers short-term solution-focused counseling (3-5 sessions), assessments, and secure community referrals.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-313-4534</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">fameika.a.thomas.civ@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6013134534" class="btn-call">Call Now</a>
+                    <a href="mailto:fameika.a.thomas.civ@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
-            <div class="contact-actions">
-                <a href="tel:6013134534" class="btn-call">Call Now</a>
-                <a href="mailto:fameika.a.thomas.civ@army.mil" class="btn-email">Email</a>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">Leslie Bensieck</div>
+                    <div class="contact-title">Tupelo Behavioral Health Counselor (BH)</div>
+                    <div class="contact-desc">Localized behavioral health assessment and support counseling in Northern MS.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-4328</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">leslie.c.bensieck.civ@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6013874328" class="btn-call">Call Now</a>
+                    <a href="mailto:leslie.c.bensieck.civ@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">Leslie Bensieck</div>
-            <div class="contact-title">Tupelo Behavioral Health Counselor (BH)</div>
-            <div class="contact-desc">Localized behavioral health assessment and support counseling in Northern MS.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-4328</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">leslie.c.bensieck.civ@army.mil</span></div>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">Frenchie Sanford</div>
+                    <div class="contact-title">Camp McCain Behavioral Health Counselor (BH)</div>
+                    <div class="contact-desc">Localized behavioral health assessment and support counseling around Camp McCain.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-6084</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">hiawatha.f.sanford.civ@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6013876084" class="btn-call">Call Now</a>
+                    <a href="mailto:hiawatha.f.sanford.civ@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
-            <div class="contact-actions">
-                <a href="tel:6013874328" class="btn-call">Call Now</a>
-                <a href="mailto:leslie.c.bensieck.civ@army.mil" class="btn-email">Email</a>
-            </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">Frenchie Sanford</div>
-            <div class="contact-title">Camp McCain Behavioral Health Counselor (BH)</div>
-            <div class="contact-desc">Localized behavioral health assessment and support counseling around Camp McCain.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-6084</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">hiawatha.f.sanford.civ@army.mil</span></div>
-            </div>
-            <div class="contact-actions">
-                <a href="tel:6013876084" class="btn-call">Call Now</a>
-                <a href="mailto:hiawatha.f.sanford.civ@army.mil" class="btn-email">Email</a>
-            </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">James Coleman</div>
-            <div class="contact-title">Camp Shelby Behavioral Health Counselor (BH)</div>
-            <div class="contact-desc">Localized behavioral health assessment and support counseling around Camp Shelby.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-6703</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">james.e.coleman125.civ@army.mil</span></div>
-            </div>
-            <div class="contact-actions">
-                <a href="tel:6013876703" class="btn-call">Call Now</a>
-                <a href="mailto:james.e.coleman125.civ@army.mil" class="btn-email">Email</a>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">James Coleman</div>
+                    <div class="contact-title">Camp Shelby Behavioral Health Counselor (BH)</div>
+                    <div class="contact-desc">Localized behavioral health assessment and support counseling around Camp Shelby.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-6703</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">james.e.coleman125.civ@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6013876703" class="btn-call">Call Now</a>
+                    <a href="mailto:james.e.coleman125.civ@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
         </div>
     </div>
@@ -711,54 +763,64 @@
         <p style="font-size: 0.78rem; color: #ebd56b; padding: 10px 5px 0 5px; font-weight: bold;">
             ⚠️ NOTE: Chaplains hold 100% absolute confidentiality. They do not report to the chain of command.
         </p>
-        <div class="contact-entry">
-            <div class="contact-name">CH (LTC) Jason Bird</div>
-            <div class="contact-title">State Chaplain</div>
-            <div class="contact-desc">Confidential state chaplaincy oversight, crisis and spiritual guidance, ethical counseling, and family support.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-917-9217</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">jason.p.bird.mil@army.mil</span></div>
+        <div class="grid-container">
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">CH (LTC) Jason Bird</div>
+                    <div class="contact-title">State Chaplain</div>
+                    <div class="contact-desc">Confidential state chaplaincy oversight, crisis and spiritual guidance, ethical counseling, and family support.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-917-9217</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">jason.p.bird.mil@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6019179217" class="btn-call">Call Now</a>
+                    <a href="mailto:jason.p.bird.mil@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
-            <div class="contact-actions">
-                <a href="tel:6019179217" class="btn-call">Call Now</a>
-                <a href="mailto:jason.p.bird.mil@army.mil" class="btn-email">Email</a>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">CH (LTC) David Morris</div>
+                    <div class="contact-title">State Support Chaplain</div>
+                    <div class="contact-desc">Relationship/resiliency programs, spiritual support, and Building Strong and Ready Teams (BSRT) programs.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-3656</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">david.o.morris15.mil@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6013873656" class="btn-call">Call Now</a>
+                    <a href="mailto:david.o.morris15.mil@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">CH (LTC) David Morris</div>
-            <div class="contact-title">State Support Chaplain</div>
-            <div class="contact-desc">Relationship/resiliency programs, spiritual support, and Building Strong and Ready Teams (BSRT) programs.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-3656</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">david.o.morris15.mil@army.mil</span></div>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">CH (CPT) Drew Holifield</div>
+                    <div class="contact-title">Camp Shelby Support Chaplain</div>
+                    <div class="contact-desc">Camp Shelby point of contact for spiritual support, counseling, and BSRT training.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-340-2151</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">drew.m.holifield.mil@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6013402151" class="btn-call">Call Now</a>
+                    <a href="mailto:drew.m.holifield.mil@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
-            <div class="contact-actions">
-                <a href="tel:6013873656" class="btn-call">Call Now</a>
-                <a href="mailto:david.o.morris15.mil@army.mil" class="btn-email">Email</a>
-            </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">CH (CPT) Drew Holifield</div>
-            <div class="contact-title">Camp Shelby Support Chaplain</div>
-            <div class="contact-desc">Camp Shelby point of contact for spiritual support, counseling, and BSRT training.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-340-2151</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">drew.m.holifield.mil@army.mil</span></div>
-            </div>
-            <div class="contact-actions">
-                <a href="tel:6013402151" class="btn-call">Call Now</a>
-                <a href="mailto:drew.m.holifield.mil@army.mil" class="btn-email">Email</a>
-            </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">CH Travis Hughes</div>
-            <div class="contact-title">Camp McCain Chaplain</div>
-            <div class="contact-desc">Confidential counseling, spiritual support, and crisis intervention at Camp McCain.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">815-355-1611</span></div>
-            </div>
-            <div class="contact-actions">
-                <a href="tel:8153551611" class="btn-call">Call Now</a>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">CH Travis Hughes</div>
+                    <div class="contact-title">Camp McCain Chaplain</div>
+                    <div class="contact-desc">Confidential counseling, spiritual support, and crisis intervention at Camp McCain.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">815-355-1611</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:8153551611" class="btn-call">Call Now</a>
+                </div>
             </div>
         </div>
     </div>
@@ -766,69 +828,81 @@
     <!-- Prevention, Risk & Safety Accordion -->
     <button class="accordion">Prevention, Risk & Safety</button>
     <div class="panel">
-        <div class="contact-entry">
-            <div class="contact-name">COL Steven Cochran</div>
-            <div class="contact-title">Integrated Primary Prevention Officer</div>
-            <div class="contact-desc">Spearheads proactive command climate efforts to address risk factors and prevent harmful behaviors.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-720-9763</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">steven.b.cochran.mil@army.mil</span></div>
+        <div class="grid-container">
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">COL Steven Cochran</div>
+                    <div class="contact-title">Integrated Primary Prevention Officer</div>
+                    <div class="contact-desc">Spearheads proactive command climate efforts to address risk factors and prevent harmful behaviors.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-720-9763</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">steven.b.cochran.mil@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6017209763" class="btn-call">Call Now</a>
+                    <a href="mailto:steven.b.cochran.mil@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
-            <div class="contact-actions">
-                <a href="tel:6017209763" class="btn-call">Call Now</a>
-                <a href="mailto:steven.b.cochran.mil@army.mil" class="btn-email">Email</a>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">1SG James Huffman</div>
+                    <div class="contact-title">Integrated Primary Prevention Specialist</div>
+                    <div class="contact-desc">Oversight of risk reduction, Applied Resiliency Training, and ASIST suicide intervention skills.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-3665</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">james.w.huffman6.mil@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6013873665" class="btn-call">Call Now</a>
+                    <a href="mailto:james.w.huffman6.mil@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">1SG James Huffman</div>
-            <div class="contact-title">Integrated Primary Prevention Specialist</div>
-            <div class="contact-desc">Oversight of risk reduction, Applied Resiliency Training, and ASIST suicide intervention skills.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-387-3665</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">james.w.huffman6.mil@army.mil</span></div>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">Reagan Sumrall</div>
+                    <div class="contact-title">Risk Reduction Coordinator</div>
+                    <div class="contact-desc">Monitors high-risk behaviors and coordinates trends mitigation support for commanders.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-889-8213</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">reagan.e.sumrall.ctr@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6628898213" class="btn-call">Call Now</a>
+                    <a href="mailto:reagan.e.sumrall.ctr@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
-            <div class="contact-actions">
-                <a href="tel:6013873665" class="btn-call">Call Now</a>
-                <a href="mailto:james.w.huffman6.mil@army.mil" class="btn-email">Email</a>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">Mackenna Samples</div>
+                    <div class="contact-title">Prevention Coordinator (North)</div>
+                    <div class="contact-desc">Prevention training, unit briefings, protective factors support, and MyPRIME substance misuse coordination.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-688-7126</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">mackenna.c.samples.ctr@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6626887126" class="btn-call">Call Now</a>
+                    <a href="mailto:mackenna.c.samples.ctr@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">Reagan Sumrall</div>
-            <div class="contact-title">Risk Reduction Coordinator</div>
-            <div class="contact-desc">Monitors high-risk behaviors and coordinates trends mitigation support for commanders.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-889-8213</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">reagan.e.sumrall.ctr@army.mil</span></div>
-            </div>
-            <div class="contact-actions">
-                <a href="tel:6628898213" class="btn-call">Call Now</a>
-                <a href="mailto:reagan.e.sumrall.ctr@army.mil" class="btn-email">Email</a>
-            </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">Mackenna Samples</div>
-            <div class="contact-title">Prevention Coordinator (North)</div>
-            <div class="contact-desc">Prevention training, unit briefings, protective factors support, and MyPRIME substance misuse coordination.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-688-7126</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">mackenna.c.samples.ctr@army.mil</span></div>
-            </div>
-            <div class="contact-actions">
-                <a href="tel:6626887126" class="btn-call">Call Now</a>
-                <a href="mailto:mackenna.c.samples.ctr@army.mil" class="btn-email">Email</a>
-            </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">LTC Tiffany Crawford</div>
-            <div class="contact-title">Sexual Assault Prevention & Response (SAPR)</div>
-            <div class="contact-desc">Victim advocacy, crisis response, reporting options education, and ongoing care coordination.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-813-1427</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">tiffany.l.crawford14.mil@army.mil</span></div>
-            </div>
-            <div class="contact-actions">
-                <a href="tel:6018131427" class="btn-call">Call Now</a>
-                <a href="mailto:tiffany.l.crawford14.mil@army.mil" class="btn-email">Email</a>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">LTC Tiffany Crawford</div>
+                    <div class="contact-title">Sexual Assault Prevention & Response (SAPR)</div>
+                    <div class="contact-desc">Victim advocacy, crisis response, reporting options education, and ongoing care coordination.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-813-1427</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">tiffany.l.crawford14.mil@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6018131427" class="btn-call">Call Now</a>
+                    <a href="mailto:tiffany.l.crawford14.mil@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
         </div>
     </div>
@@ -836,58 +910,68 @@
     <!-- Career, Family & Financial Accordion -->
     <button class="accordion">Career, Family & Financial</button>
     <div class="panel">
-        <div class="contact-entry">
-            <div class="contact-name">Ms. Danielle Richards</div>
-            <div class="contact-title">Military & Family Readiness Manager</div>
-            <div class="contact-desc">Deployment/reintegration help and point of contact for the MSNG Military Relief Fund application.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">769-572-0985</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">danielle.p.richards2.civ@army.mil</span></div>
+        <div class="grid-container">
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">Ms. Danielle Richards</div>
+                    <div class="contact-title">Military & Family Readiness Manager</div>
+                    <div class="contact-desc">Deployment/reintegration help and point of contact for the MSNG Military Relief Fund application.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">769-572-0985</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">danielle.p.richards2.civ@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:7695720985" class="btn-call">Call Now</a>
+                    <a href="mailto:danielle.p.richards2.civ@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
-            <div class="contact-actions">
-                <a href="tel:7695720985" class="btn-call">Call Now</a>
-                <a href="mailto:danielle.p.richards2.civ@army.mil" class="btn-email">Email</a>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">Willie McGriggs</div>
+                    <div class="contact-title">Personal Financial Counselor</div>
+                    <div class="contact-desc">No-cost confidential financial counseling, budgeting, debt management, and financial planning.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">(601) 331-6292</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">pfc.jacksonms@magellanfederal.com</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6013316292" class="btn-call">Call Now</a>
+                    <a href="mailto:pfc.jacksonms@magellanfederal.com" class="btn-email">Email</a>
+                </div>
             </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">Willie McGriggs</div>
-            <div class="contact-title">Personal Financial Counselor</div>
-            <div class="contact-desc">No-cost confidential financial counseling, budgeting, debt management, and financial planning.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">(601) 331-6292</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">pfc.jacksonms@magellanfederal.com</span></div>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">Michael McGee</div>
+                    <div class="contact-title">Work4Warriors Placement Coordinator</div>
+                    <div class="contact-desc">No-cost career placement assistance, resume building, job searches, and MS employer networking.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-705-0673</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">Michael.mcgee@wfwms.org</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Web:</span><span class="contact-value">www.wfwms.org</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6627050673" class="btn-call">Call Now</a>
+                    <a href="mailto:Michael.mcgee@wfwms.org" class="btn-email">Email</a>
+                    <a href="https://www.wfwms.org" target="_blank" class="btn-web">Website</a>
+                </div>
             </div>
-            <div class="contact-actions">
-                <a href="tel:6013316292" class="btn-call">Call Now</a>
-                <a href="mailto:pfc.jacksonms@magellanfederal.com" class="btn-email">Email</a>
-            </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">Michael McGee</div>
-            <div class="contact-title">Work4Warriors Placement Coordinator</div>
-            <div class="contact-desc">No-cost career placement assistance, resume building, job searches, and MS employer networking.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">662-705-0673</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">Michael.mcgee@wfwms.org</span></div>
-                <div class="contact-text-line"><span class="contact-label">Web:</span><span class="contact-value">www.wfwms.org</span></div>
-            </div>
-            <div class="contact-actions">
-                <a href="tel:6627050673" class="btn-call">Call Now</a>
-                <a href="mailto:Michael.mcgee@wfwms.org" class="btn-email">Email</a>
-                <a href="https://www.wfwms.org" target="_blank" class="btn-web">Website</a>
-            </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">Tim Abrams</div>
-            <div class="contact-title">Benefits & Transition Coordinator</div>
-            <div class="contact-desc">Education on benefits, VA entitlements, retirement, separation, and civilian life transition guidance.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-918-0975</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">timothy.l.abram.ctr@army.mil</span></div>
-            </div>
-            <div class="contact-actions">
-                <a href="tel:6019180975" class="btn-call">Call Now</a>
-                <a href="mailto:timothy.l.abram.ctr@army.mil" class="btn-email">Email</a>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">Tim Abrams</div>
+                    <div class="contact-title">Benefits & Transition Coordinator</div>
+                    <div class="contact-desc">Education on benefits, VA entitlements, retirement, separation, and civilian life transition guidance.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-918-0975</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">timothy.l.abram.ctr@army.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6019180975" class="btn-call">Call Now</a>
+                    <a href="mailto:timothy.l.abram.ctr@army.mil" class="btn-email">Email</a>
+                </div>
             </div>
         </div>
     </div>
@@ -898,32 +982,38 @@
         <p style="font-size: 0.78rem; color: #ebd56b; padding: 10px 5px 0 5px; font-weight: bold;">
             ⚠️ NOTE: These external agencies provide counseling and non-medical treatment separate from command visibility.
         </p>
-        <div class="contact-entry">
-            <div class="contact-name">Military & Family Life Counselor (MFLC)</div>
-            <div class="contact-title">Confidential Non-Medical Counseling</div>
-            <div class="contact-desc">Free, unlimited, highly confidential non-medical counseling for stress, relationships, transitions. Does not report to command. Access extensive resources online.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-520-6457</span></div>
-                <div class="contact-text-line"><span class="contact-label">Web:</span><span class="contact-value">www.militaryonesource.mil</span></div>
+        <div class="grid-container">
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">Military & Family Life Counselor (MFLC)</div>
+                    <div class="contact-title">Confidential Non-Medical Counseling</div>
+                    <div class="contact-desc">Free, unlimited, highly confidential non-medical counseling for stress, relationships, transitions. Does not report to command. Access extensive resources online.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-520-6457</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Web:</span><span class="contact-value">www.militaryonesource.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6015206457" class="btn-call">Call Now</a>
+                    <a href="https://www.militaryonesource.mil" target="_blank" class="btn-web">Website</a>
+                </div>
             </div>
-            <div class="contact-actions">
-                <a href="tel:6015206457" class="btn-call">Call Now</a>
-                <a href="https://www.militaryonesource.mil" target="_blank" class="btn-web">Website</a>
-            </div>
-        </div>
-        <div class="contact-entry">
-            <div class="contact-name">Ricky Tyler</div>
-            <div class="contact-title">Military OneSource Representative</div>
-            <div class="contact-desc">Provides connection to 24/7 free non-medical counseling, financial planning, legal resources, and family referrals.</div>
-            <div class="contact-text-info">
-                <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-874-4641</span></div>
-                <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">ricky.tyler@militaryonesource.com</span></div>
-                <div class="contact-text-line"><span class="contact-label">Web:</span><span class="contact-value">www.militaryonesource.mil</span></div>
-            </div>
-            <div class="contact-actions">
-                <a href="tel:6018744641" class="btn-call">Call Now</a>
-                <a href="mailto:ricky.tyler@militaryonesource.com" class="btn-email">Email</a>
-                <a href="https://www.militaryonesource.mil" target="_blank" class="btn-web">Website</a>
+            <div class="contact-entry">
+                <div>
+                    <div class="contact-name">Ricky Tyler</div>
+                    <div class="contact-title">Military OneSource Representative</div>
+                    <div class="contact-desc">Provides connection to 24/7 free non-medical counseling, financial planning, legal resources, and family referrals.</div>
+                </div>
+                <div class="contact-text-info">
+                    <div class="contact-text-line"><span class="contact-label">Phone:</span><span class="contact-value">601-874-4641</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Email:</span><span class="contact-value">ricky.tyler@militaryonesource.com</span></div>
+                    <div class="contact-text-line"><span class="contact-label">Web:</span><span class="contact-value">www.militaryonesource.mil</span></div>
+                </div>
+                <div class="contact-actions">
+                    <a href="tel:6018744641" class="btn-call">Call Now</a>
+                    <a href="mailto:ricky.tyler@militaryonesource.com" class="btn-email">Email</a>
+                    <a href="https://www.militaryonesource.mil" target="_blank" class="btn-web">Website</a>
+                </div>
             </div>
         </div>
     </div>
