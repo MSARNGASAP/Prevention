@@ -196,13 +196,42 @@
             display: inline-block;
         }
 
-        /* Box Breathing Dynamic Pacer */
+        /* Box Breathing Dynamic Pacer & Instructions */
+        .breathe-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .breathe-grid {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+
+        .breathe-step {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .breathe-step-num {
+            color: var(--alert-gold);
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
         .breathing-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 25px 0;
+            margin: 15px 0;
             padding: 20px;
             background-color: rgba(0,0,0,0.2);
             border-radius: 8px;
@@ -563,6 +592,26 @@
                     This physical breathing exercise physically stimulates your vagus nerve. It drops your heart rate and stops panic attacks cold.
                 </p>
 
+                <!-- 4-Step Memory Grid -->
+                <div class="breathe-grid">
+                    <div class="breathe-step">
+                        <div class="breathe-step-num">1. IN</div>
+                        <strong>4 Seconds</strong><br><span style="color: var(--text-muted); font-size: 11px;">Fill your lungs</span>
+                    </div>
+                    <div class="breathe-step">
+                        <div class="breathe-step-num">2. HOLD</div>
+                        <strong>4 Seconds</strong><br><span style="color: var(--text-muted); font-size: 11px;">Steady & still</span>
+                    </div>
+                    <div class="breathe-step">
+                        <div class="breathe-step-num">3. OUT</div>
+                        <strong>4 Seconds</strong><br><span style="color: var(--text-muted); font-size: 11px;">Slow release</span>
+                    </div>
+                    <div class="breathe-step">
+                        <div class="breathe-step-num">4. HOLD</div>
+                        <strong>4 Seconds</strong><br><span style="color: var(--text-muted); font-size: 11px;">Stay empty</span>
+                    </div>
+                </div>
+
                 <div class="breathing-container">
                     <div class="breathing-circle-wrapper">
                         <div class="breathing-outer-ring"></div>
@@ -606,7 +655,7 @@
         </button>
         <div class="accordion-content">
             <div class="accordion-body">
-                <span class="situation-tag">WHEN TO USE: Feeling Overwhelmed by Life, Work, or Family</span>
+                <span class="situation-tag">WHEN TO USE: Feeling Overwhelmed by Life, Work, or Family Stress</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
                     When life hits all at once (relationships, civilian bosses, bills, unexpected changes), divide your stressors to stop worrying about what you cannot influence.
                 </p>
@@ -643,7 +692,7 @@
         </button>
         <div class="accordion-content">
             <div class="accordion-body">
-                <span class="situation-tag">WHEN TO USE: Convinced Everything is Ruined or Will Fail</span>
+                <span class="situation-tag">WHEN TO USE: Feeling Convinced Everything is Ruined or Will Fail</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
                     When stress tricks you into believing the worst possible outcome is guaranteed, write or map out these four questions:
                 </p>
@@ -666,7 +715,7 @@
         </button>
         <div class="accordion-content">
             <div class="accordion-body">
-                <span class="situation-tag">WHEN TO USE: Intense Anger, Urge to Drink, or Impulse Actions</span>
+                <span class="situation-tag">WHEN TO USE: Intense Anger, Urge to Drink, or High-Impulse Urges</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
                     Prevent impulsive, self-destructive choices or heated fights before they occur.
                 </p>
@@ -713,7 +762,7 @@
         </button>
         <div class="accordion-content">
             <div class="accordion-body">
-                <span class="situation-tag">Focus: Flushing Stress & Anxiety Hormones</span>
+                <span class="situation-tag">WHEN TO USE: Highly Stressed, Physically Restless, or Muscularly Tense</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">
                     Mental health is deeply rooted in physical biochemistry. When you stress, your body builds up high concentrations of adrenaline and cortisol (the panic chemicals).
                 </p>
@@ -735,7 +784,7 @@
         </button>
         <div class="accordion-content">
             <div class="accordion-body">
-                <span class="situation-tag">Focus: Preventing Emotional Overreaction & Spirals</span>
+                <span class="situation-tag">WHEN TO USE: Feeling Chronic Exhaustion, Brain Fog, or High Irritability</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">
                     Sleep deprivation physically breaks your brain's emotional brakes. Without deep REM sleep, the connection between your logical prefrontal cortex and your emotional amygdala (the alarm center) weakens by over 60%.
                 </p>
@@ -760,7 +809,7 @@
         </button>
         <div class="accordion-content">
             <div class="accordion-body">
-                <span class="situation-tag">Focus: Eliminating False Panic Signals</span>
+                <span class="situation-tag">WHEN TO USE: Sudden Chest Tightness, Rapid Heartbeat, or Low Energy</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">
                     Even minor dehydration (as low as 1.5% water volume loss) physically mimics the symptoms of generalized anxiety disorder and panic attacks.
                 </p>
@@ -787,6 +836,7 @@
         </button>
         <div class="accordion-content">
             <div class="accordion-body">
+                <span class="situation-tag">WHEN TO USE: Seeking Private Counseling, Confidential Chaplains, or BHO Care</span>
                 <div class="grid-container">
 
                     <!-- State Chaplain -->
@@ -953,6 +1003,7 @@
         </button>
         <div class="accordion-content">
             <div class="accordion-body">
+                <span class="situation-tag">WHEN TO USE: Seeking Prevention Education, SAPR Advocacy, or Risk Guidance</span>
                 <div class="grid-container">
 
                     <!-- IPPO -->
@@ -1053,6 +1104,7 @@
         </button>
         <div class="accordion-content">
             <div class="accordion-body">
+                <span class="situation-tag">WHEN TO USE: Navigating Money Stress, Job Placement, or Family Resources</span>
                 <div class="grid-container">
 
                     <!-- Military Family Readiness -->
@@ -1158,7 +1210,7 @@
         </button>
         <div class="accordion-content">
             <div class="accordion-body">
-                <span class="situation-tag">Focus: Intervening to Support a Struggling Battle Buddy</span>
+                <span class="situation-tag">WHEN TO USE: Intervening to Support a Battle Buddy in Distress</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
                     When you notice shifts in mood, withdrawal, or talk of suicide in a peer, operationalize the direct ACE intervention guidelines:
                 </p>
