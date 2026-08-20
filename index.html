@@ -52,10 +52,11 @@
            ========================================== */
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             padding-top: 10px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         header p {
@@ -73,6 +74,33 @@
             color: var(--text-color);
             letter-spacing: 1px;
             text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        /* Anonymity Banner placed prominently at the top */
+        .confidentiality-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: rgba(151, 193, 128, 0.08);
+            border: 1px solid rgba(151, 193, 128, 0.2);
+            color: var(--accent-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.75px;
+            margin-bottom: 20px;
+            max-width: 100%;
+        }
+
+        .confidentiality-badge svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            flex-shrink: 0;
         }
 
         .emergency-banner {
@@ -583,6 +611,14 @@
         <h1>DIGITAL GO-BAG</h1>
     </header>
 
+    <!-- Prominent statement clarifying free & anonymous use right above actions -->
+    <div style="text-align: center; margin-bottom: 10px;">
+        <div class="confidentiality-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+            <span>Free Resources &bull; 100% Anonymous &bull; No Logins Required</span>
+        </div>
+    </div>
+
     <!-- ==========================================
          CRISIS RESPONSE BANNER
          ========================================== -->
@@ -792,387 +828,4 @@
                 </p>
                 <div style="background-color: rgba(255,255,255,0.02); border-radius: 8px; padding: 15px; font-size: 13px;">
                     <p style="margin-bottom: 8px;"><strong>10 Hours Before Bed:</strong> No caffeine (completely flushes from system).</p>
-                    <p style="margin-bottom: 8px;"><strong>3 Hours Before Bed:</strong> No heavy food or alcohol (alcohol ruins deep recovery REM sleep).</p>
-                    <p style="margin-bottom: 8px;"><strong>2 Hours Before Bed:</strong> No work or intense mental planning (allows heart rate to settle).</p>
-                    <p style="margin-bottom: 8px;"><strong>1 Hour Before Bed:</strong> No blue light screens (stops phone light from suppressing melatonin).</p>
-                    <p style="margin-bottom: 0;"><strong>0 Times:</strong> The number of times you should hit snooze in the morning.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span>3. Hydration Triage</span>
-            <span class="icon">+</span>
-        </button>
-        <div class="accordion-content">
-            <div class="accordion-body">
-                <span class="situation-tag">Focus: Eliminating False Panic Signals</span>
-                <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">
-                    Even minor dehydration (as low as 1.5% water volume loss) physically mimics the symptoms of generalized anxiety disorder and panic attacks.
-                </p>
-                <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
-                    When your body is dehydrated, your blood volume drops. This forces your heart to beat faster and your respiration rate to increase to move oxygen. Your brain registers this fast heartbeat and heavy chest as *panic*, triggering an emotional spiral when nothing is actually wrong.
-                </p>
-                <div style="background-color: rgba(255,255,255,0.02); border-radius: 4px; padding: 12px; font-size: 13px; font-weight: 700; color: var(--alert-gold); text-align: center; border: 1px solid var(--border-color)">
-                    ACTION HACK: Before making any big emotional decisions or acting on a panic attack, drink 16oz of ice-cold water and wait 10 minutes.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==========================================
-         SECTION 3: MSARNG HELPLINE DIRECTORY
-         ========================================== -->
-    <h2 class="section-title">Confidential Help Directory</h2>
-
-    <!-- Collapsible MSNG Support Accordion -->
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span>Mississippi National Guard Support Services</span>
-            <span class="icon">+</span>
-        </button>
-        <div class="accordion-content">
-            <div class="accordion-body">
-                <div class="grid-container">
-
-                    <!-- State Chaplain -->
-                    <div class="resource-card">
-                        <div>
-                            <h3>CH (LTC) Jason Bird</h3>
-                            <div class="resource-title">State Chaplain Office</div>
-                            <p class="resource-desc">100% absolute federal confidentiality. Offers spiritual guidance, personal crisis counsel, family training, and Command advice regardless of faith background.</p>
-                        </div>
-                        <div class="contact-text-info">
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27 11.72 11.72 0 0 0 3.65.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .58 3.65 1 1 0 0 1-.27 1.11z"/></svg>
-                                </span>
-                                <span class="contact-label">Phone:</span>
-                                <span class="contact-value">601-917-9217</span>
-                            </div>
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </span>
-                                <span class="contact-label">Email:</span>
-                                <span class="contact-value">jason.p.bird.mil@army.mil</span>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:6019179217" class="btn btn-gold">Call Now</a>
-                            <a href="mailto:jason.p.bird.mil@army.mil" class="btn btn-outline">Email</a>
-                        </div>
-                    </div>
-
-                    <!-- State Support Chaplain -->
-                    <div class="resource-card">
-                        <div>
-                            <h3>CH (LTC) David Morris</h3>
-                            <div class="resource-title">State Support Chaplain</div>
-                            <p class="resource-desc">Confidential counseling, spiritual guidance, family and relationship enrichment, Building Strong and Ready Teams (BSRT) training programs.</p>
-                        </div>
-                        <div class="contact-text-info">
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27 11.72 11.72 0 0 0 3.65.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .58 3.65 1 1 0 0 1-.27 1.11z"/></svg>
-                                </span>
-                                <span class="contact-label">Phone:</span>
-                                <span class="contact-value">601-387-3656</span>
-                            </div>
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </span>
-                                <span class="contact-label">Email:</span>
-                                <span class="contact-value">david.o.morris15.mil@army.mil</span>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:6013873656" class="btn btn-gold">Call Now</a>
-                            <a href="mailto:david.o.morris15.mil@army.mil" class="btn btn-outline">Email</a>
-                        </div>
-                    </div>
-
-                    <!-- Camp Shelby Support Chaplain -->
-                    <div class="resource-card">
-                        <div>
-                            <h3>CH (CPT) Drew Holifield</h3>
-                            <div class="resource-title">Camp Shelby Chaplaincy Support</div>
-                            <p class="resource-desc">Confidential counseling, spiritual care, crisis intervention, point of contact for Building Strong and Ready Teams (BSRT) programs at Shelby.</p>
-                        </div>
-                        <div class="contact-text-info">
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27 11.72 11.72 0 0 0 3.65.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .58 3.65 1 1 0 0 1-.27 1.11z"/></svg>
-                                </span>
-                                <span class="contact-label">Phone:</span>
-                                <span class="contact-value">601-340-2151</span>
-                            </div>
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </span>
-                                <span class="contact-label">Email:</span>
-                                <span class="contact-value">drew.m.holifield.mil@army.mil</span>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:6013402151" class="btn btn-gold">Call Now</a>
-                            <a href="mailto:drew.m.holifield.mil@army.mil" class="btn btn-outline">Email</a>
-                        </div>
-                    </div>
-
-                    <!-- Camp McCain Chaplain -->
-                    <div class="resource-card">
-                        <div>
-                            <h3>CH Travis Hughes</h3>
-                            <div class="resource-title">Camp McCain Chaplaincy Support</div>
-                            <p class="resource-desc">Dedicated local spiritual and emotional support, counseling, and direct crisis care at Camp McCain.</p>
-                        </div>
-                        <div class="contact-text-info">
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27 11.72 11.72 0 0 0 3.65.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .58 3.65 1 1 0 0 1-.27 1.11z"/></svg>
-                                </span>
-                                <span class="contact-label">Phone:</span>
-                                <span class="contact-value">815-355-1611</span>
-                            </div>
-                        </div>
-                        <div class="btn-group single">
-                            <a href="tel:8153551611" class="btn btn-gold">Call Now</a>
-                        </div>
-                    </div>
-
-                    <!-- DPH -->
-                    <div class="resource-card">
-                        <div>
-                            <h3>Fameika Thomas, LCSW</h3>
-                            <div class="resource-title">Director of Psychological Health (DPH)</div>
-                            <p class="resource-desc">Short-term solution-focused counseling, mental health assessments, referrals for long-term clinical care, and behavioral coordination.</p>
-                        </div>
-                        <div class="contact-text-info">
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27 11.72 11.72 0 0 0 3.65.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .58 3.65 1 1 0 0 1-.27 1.11z"/></svg>
-                                </span>
-                                <span class="contact-label">Phone:</span>
-                                <span class="contact-value">601-313-4534</span>
-                            </div>
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </span>
-                                <span class="contact-label">Email:</span>
-                                <span class="contact-value">fameika.a.thomas.civ@army.mil</span>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:6013134534" class="btn btn-gold">Call Now</a>
-                            <a href="mailto:fameika.a.thomas.civ@army.mil" class="btn btn-outline">Email</a>
-                        </div>
-                    </div>
-
-                    <!-- BHO Tupelo -->
-                    <div class="resource-card">
-                        <div>
-                            <h3>Leslie Bensieck</h3>
-                            <div class="resource-title">Tupelo Behavioral Health Counselor</div>
-                            <p class="resource-desc">Regional behavioral health counseling, psychological assessments, case management, and resource navigation.</p>
-                        </div>
-                        <div class="contact-text-info">
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27 11.72 11.72 0 0 0 3.65.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .58 3.65 1 1 0 0 1-.27 1.11z"/></svg>
-                                </span>
-                                <span class="contact-label">Phone:</span>
-                                <span class="contact-value">601-387-4328</span>
-                            </div>
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </span>
-                                <span class="contact-label">Email:</span>
-                                <span class="contact-value">leslie.c.bensieck.civ@army.mil</span>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:6013874328" class="btn btn-gold">Call Now</a>
-                            <a href="mailto:leslie.c.bensieck.civ@army.mil" class="btn btn-outline">Email</a>
-                        </div>
-                    </div>
-
-                    <!-- BHO Camp McCain -->
-                    <div class="resource-card">
-                        <div>
-                            <h3>Frenchie Sanford</h3>
-                            <div class="resource-title">Camp McCain Behavioral Health Counselor</div>
-                            <p class="resource-desc">Regional support, psychological assessment, early intervention, crisis support and clinical referrals.</p>
-                        </div>
-                        <div class="contact-text-info">
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27 11.72 11.72 0 0 0 3.65.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .58 3.65 1 1 0 0 1-.27 1.11z"/></svg>
-                                </span>
-                                <span class="contact-label">Phone:</span>
-                                <span class="contact-value">601-387-6084</span>
-                            </div>
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </span>
-                                <span class="contact-label">Email:</span>
-                                <span class="contact-value">hiawatha.f.sanford.civ@army.mil</span>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:6013876084" class="btn btn-gold">Call Now</a>
-                            <a href="mailto:hiawatha.f.sanford.civ@army.mil" class="btn btn-outline">Email</a>
-                        </div>
-                    </div>
-
-                    <!-- BHO Camp Shelby -->
-                    <div class="resource-card">
-                        <div>
-                            <h3>James Coleman</h3>
-                            <div class="resource-title">Camp Shelby Behavioral Health Counselor</div>
-                            <p class="resource-desc">On-site behavioral health counseling, assessments, clinical case navigation, and preventative education programs.</p>
-                        </div>
-                        <div class="contact-text-info">
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27 11.72 11.72 0 0 0 3.65.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .58 3.65 1 1 0 0 1-.27 1.11z"/></svg>
-                                </span>
-                                <span class="contact-label">Phone:</span>
-                                <span class="contact-value">601-387-6703</span>
-                            </div>
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </span>
-                                <span class="contact-label">Email:</span>
-                                <span class="contact-value">james.e.coleman125.civ@army.mil</span>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:6013876703" class="btn btn-gold">Call Now</a>
-                            <a href="mailto:james.e.coleman125.civ@army.mil" class="btn btn-outline">Email</a>
-                        </div>
-                    </div>
-
-                    <!-- MFLC -->
-                    <div class="resource-card">
-                        <div>
-                            <h3>Military & Family Life Counselor (MFLC)</h3>
-                            <div class="resource-title">Magellan Federal Counseling</div>
-                            <p class="resource-desc">Free, unlimited, confidential non-medical counseling. Zero records, logs, or command notification. Addresses stress, relationships, transitions, and daily military life.</p>
-                        </div>
-                        <div class="contact-text-info">
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </span>
-                                <span class="contact-label">Email:</span>
-                                <span class="contact-value">barnesk@magellanfederal.com</span>
-                            </div>
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.34-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 0 1 5.08 16zm2.95-8H5.08a8.03 8.03 0 0 1 4.31-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.34-.16-2s.07-1.34.16-2h4.68c.09.66.16 1.34.16 2s-.07 1.34-.16 2zm.24 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a7.987 7.987 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.34.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
-                                </span>
-                                <span class="contact-label">Web:</span>
-                                <span class="contact-value">militaryonesource.mil</span>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <a href="mailto:barnesk@magellanfederal.com" class="btn btn-gold">Email Now</a>
-                            <a href="https://www.militaryonesource.mil" target="_blank" class="btn btn-outline">Visit Web</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Collapsible Prevention & Safety Accordion -->
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span>Prevention, Risk & Safety Officers</span>
-            <span class="icon">+</span>
-        </button>
-        <div class="accordion-content">
-            <div class="accordion-body">
-                <div class="grid-container">
-
-                    <!-- IPPO -->
-                    <div class="resource-card">
-                        <div>
-                            <h3>COL Steven Cochran</h3>
-                            <div class="resource-title">Integrated Primary Prevention Officer</div>
-                            <p class="resource-desc">Leads strategic and holistic efforts to proactively prevent harmful behaviors, mitigate risks, and enhance overall mission readiness.</p>
-                        </div>
-                        <div class="contact-text-info">
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27 11.72 11.72 0 0 0 3.65.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .58 3.65 1 1 0 0 1-.27 1.11z"/></svg>
-                                </span>
-                                <span class="contact-label">Phone:</span>
-                                <span class="contact-value">601-720-9763</span>
-                            </div>
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </span>
-                                <span class="contact-label">Email:</span>
-                                <span class="contact-value">steven.b.cochran.mil@army.mil</span>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:6017209763" class="btn btn-gold">Call Now</a>
-                            <a href="mailto:steven.b.cochran.mil@army.mil" class="btn btn-outline">Email</a>
-                        </div>
-                    </div>
-
-                    <!-- IPPS -->
-                    <div class="resource-card">
-                        <div>
-                            <h3>1SG James Huffman</h3>
-                            <div class="resource-title">Integrated Primary Prevention Specialist</div>
-                            <p class="resource-desc">Monitors resiliency efforts and coordinates suicide prevention strategies. POC for Applied Resiliency and ASIST trainings.</p>
-                        </div>
-                        <div class="contact-text-info">
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27 11.72 11.72 0 0 0 3.65.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .58 3.65 1 1 0 0 1-.27 1.11z"/></svg>
-                                </span>
-                                <span class="contact-label">Phone:</span>
-                                <span class="contact-value">601-387-3665</span>
-                            </div>
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </span>
-                                <span class="contact-label">Email:</span>
-                                <span class="contact-value">james.w.huffman6.mil@army.mil</span>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:6013873665" class="btn btn-gold">Call Now</a>
-                            <a href="mailto:james.w.huffman6.mil@army.mil" class="btn btn-outline">Email</a>
-                        </div>
-                    </div>
-
-                    <!-- Risk Reduction -->
-                    <div class="resource-card">
-                        <div>
-                            <h3>Reagan Sumrall</h3>
-                            <div class="resource-title">Risk Reduction Coordinator</div>
-                            <p class="resource-desc">Monitors high-risk behavioral trends, supports commanders with risk mitigation, and assists with target intervention placement.</p>
-                        </div>
-                        <div class="contact-text-info">
-                            <div class="contact-line">
-                                <span class="contact-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27 11.72 11.72 0 0 0 3.65.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .58 3.65 1 1 0 0 1-.27 1.11z"/></svg>
-                                </span>
-                                <span class
+                    <p style="margin-bottom: 8px;"><strong>3 Hours Before Bed:</strong> No heavy food or alcohol (
