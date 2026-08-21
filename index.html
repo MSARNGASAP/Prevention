@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSARNG Resiliency & Prevention Portal</title>
+    <title>MSARNG Tactical Go-Bag</title>
     <style>
         /* ==========================================
            COLOR PALETTE & THEME (Army Camouflage OCP-Inspired)
@@ -56,18 +56,19 @@
         }
 
         header h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 800;
             color: var(--text-color);
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             margin-bottom: 4px;
+            text-transform: uppercase;
         }
 
         header p {
             color: var(--accent-green);
             font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
@@ -557,11 +558,11 @@
 <div class="container">
 
     <!-- ==========================================
-         PORTAL HEADER
+         PORTAL HEADER (Updated for Title & Anonymous Verification)
          ========================================== -->
     <header>
-        <p>MSARNG Tactical Support Portal</p>
-        <h1>DIGITAL GO-BAG</h1>
+        <h1>TACTICAL GO-BAG</h1>
+        <p>100% Free & Anonymous • MSARNG Support Portal</p>
     </header>
 
     <!-- ==========================================
@@ -619,8 +620,7 @@
                             <span id="breatheText">BREATHE</span>
                         </div>
                     </div>
-                    <div class="breathing-timer" id="instruction">Tap below to begin</div>
-                    <button class="btn btn-gold" id="breatheBtn" onclick="toggleBreathing()" style="margin-top:20px; padding:8px 20px;">Start Exercise</button>
+                    <div class="breathing-timer" id="instruction">Initializing...</div>
                 </div>
             </div>
         </div>
@@ -1237,7 +1237,7 @@
             <span>Zero Logins. Zero Tracking. 100% Anonymous.</span>
         </div>
         <p class="footer-note">MSARNG Suicide & Substance Abuse Prevention Initiative</p>
-        <p class="footer-note" style="margin-top: 5px; font-size: 10px; color: var(--border-color);">v2.6.2 - Production Build</p>
+        <p class="footer-note" style="margin-top: 5px; font-size: 10px; color: var(--border-color);">v2.7.0 - Production Build</p>
     </footer>
 
 </div>
@@ -1275,46 +1275,31 @@
     }
 
     /* ==========================================
-       TACTICAL BREATHING JAVASCRIPT CONTROLLER
+       TACTICAL BREATHING JAVASCRIPT CONTROLLER (Automatic Execution)
        ========================================== */
     let breathingInterval;
-    let isBreathing = false;
     let breathCount = 0;
 
     const bubble = document.getElementById('bubble');
     const breatheText = document.getElementById('breatheText');
     const instruction = document.getElementById('instruction');
-    const breatheBtn = document.getElementById('breatheBtn');
 
     // 4 Steps in Box Breathing Loop
     const breathingCycle = [
-        { text: "Inhale", scale: "scale(2.0)", desc: "Deep breath in... feel your belly rise." },
+        { text: "Inhale", scale: "scale(2.0)", desc: "Deep breath in... feel your chest expand." },
         { text: "Hold", scale: "scale(2.0)", desc: "Hold it... steady and peaceful." },
         { text: "Exhale", scale: "scale(1.0)", desc: "Exhale slowly... release all tension." },
         { text: "Hold", scale: "scale(1.0)", desc: "Hold empty... relax before the next breath." }
     ];
 
-    function toggleBreathing() {
-        if (isBreathing) {
-            stopBreathing();
-        } else {
-            startBreathing();
-        }
-    }
-
     function startBreathing() {
-        isBreathing = true;
-        breatheBtn.innerText = "Stop Exercise";
-        breatheBtn.style.backgroundColor = "var(--border-color)";
-        breatheBtn.style.color = "var(--text-color)";
-
         breathCount = 0;
-        runCycle(); // Execute immediately on press
+        runCycle(); // Execute first cycle immediately
 
         breathingInterval = setInterval(() => {
             breathCount = (breathCount + 1) % 4;
             runCycle();
-        }, 4000); // Transitions occur exactly every 4000ms
+        }, 4000); // Cycle transitions strictly every 4000ms
     }
 
     function runCycle() {
@@ -1324,16 +1309,8 @@
         instruction.innerText = step.desc;
     }
 
-    function stopBreathing() {
-        isBreathing = false;
-        clearInterval(breathingInterval);
-        breatheBtn.innerText = "Start Exercise";
-        breatheBtn.style.backgroundColor = "var(--alert-gold)";
-        breatheBtn.style.color = "var(--bg-color)";
-        breatheText.innerText = "BREATHE";
-        bubble.style.transform = "scale(1.0)";
-        instruction.innerText = "Exercise stopped. Tap Start to practice.";
-    }
+    // Initialize Automatically on Page Load
+    window.addEventListener('DOMContentLoaded', startBreathing);
 </script>
 
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "76a0c1d5b791459793b258f431f4439b"}'></script><!-- End Cloudflare Web Analytics -->
