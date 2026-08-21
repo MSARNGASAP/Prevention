@@ -31,6 +31,10 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling for triage anchor jumps */
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
@@ -51,7 +55,7 @@
            ========================================== */
         header {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             padding-top: 10px;
         }
 
@@ -77,7 +81,7 @@
             border: 2px solid var(--alert-gold);
             border-radius: 12px;
             padding: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
         }
 
@@ -101,6 +105,46 @@
             .emergency-grid {
                 grid-template-columns: 1fr 1fr;
             }
+        }
+
+        /* ==========================================
+           TRIAGE QUICK PATH NAVIGATION
+           ========================================== */
+        .triage-nav {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        @media (min-width: 600px) {
+            .triage-nav {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .triage-btn {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .triage-btn:hover {
+            border-color: var(--accent-green);
+            background-color: rgba(140, 179, 105, 0.05);
+            color: var(--accent-green);
         }
 
         /* ==========================================
@@ -378,6 +422,55 @@
         }
 
         /* ==========================================
+           "WHEN COPING SKILLS AREN'T ENOUGH" SECTION
+           ========================================== */
+        .support-check-box {
+            background-color: rgba(235, 213, 107, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px 0 15px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .support-check-box h3 {
+            color: var(--alert-gold);
+            font-size: 16px;
+            font-weight: 750;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .support-check-box p {
+            font-size: 13px;
+            color: var(--text-color);
+            margin-bottom: 12px;
+        }
+
+        .support-check-box ul {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+
+        .support-check-box li {
+            font-size: 13px;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .support-check-box li::before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+            color: var(--alert-gold);
+            font-weight: bold;
+        }
+
+        /* ==========================================
            DIRECTORY CARDS (Optimized for Mobile/Desktop)
            ========================================== */
         .resource-card {
@@ -577,9 +670,18 @@
     </div>
 
     <!-- ==========================================
+         TRIAGE QUICK PATH NAVIGATION
+         ========================================== -->
+    <div class="triage-nav">
+        <a href="#coping-skills" class="triage-btn">I need something I can do right now</a>
+        <a href="#help-directory" class="triage-btn">I need someone to talk to</a>
+        <a href="#help-buddy" class="triage-btn">I want to help another Soldier</a>
+    </div>
+
+    <!-- ==========================================
          SECTION 1: IMMEDIATE TACTICAL COPING SKILLS
          ========================================== -->
-    <h2 class="section-title">Tactical Coping Skills</h2>
+    <h2 class="section-title" id="coping-skills">Tactical Coping Skills</h2>
 
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
@@ -588,9 +690,9 @@
         </button>
         <div class="accordion-content">
             <div class="accordion-body">
-                <span class="situation-tag">WHEN TO USE: Racing Heart, Panic, Extreme Anger, or Overwhelm</span>
+                <span class="situation-tag">WHEN TO USE: Racing Heart, Stress, Extreme Anger, or Overwhelm</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
-                    This physical breathing exercise physically stimulates your vagus nerve. It drops your heart rate and stops panic attacks cold.
+                    This physical breathing exercise stimulates your vagus nerve, which helps regulate stress and calm the body's fight-or-flight response.
                 </p>
 
                 <!-- 4-Step Memory Grid -->
@@ -635,7 +737,7 @@
             <div class="accordion-body">
                 <span class="situation-tag">WHEN TO USE: Spiraling Thoughts, Flashbacks, or Detachment</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
-                    Force your brain back into the present moment by naming objects in your physical environment.
+                    Draw your focus back into the present moment by actively identifying elements in your immediate environment to help manage the physical symptoms of stress.
                 </p>
                 <ul class="grounding-list">
                     <li class="grounding-item"><div class="grounding-num">5</div><span style="font-size:14px;"><strong>Things you can see:</strong> Name them silently (e.g., a truck, a desk, a pattern on the floor).</span></li>
@@ -657,15 +759,15 @@
             <div class="accordion-body">
                 <span class="situation-tag">WHEN TO USE: Feeling Overwhelmed by Life, Work, or Family Stress</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
-                    When life hits all at once (relationships, civilian bosses, bills, unexpected changes), divide your stressors to stop worrying about what you cannot influence.
+                    When life challenges build up (relationships, civilian work, bills, unexpected changes), divide your stressors to prioritize what you can actively influence.
                 </p>
                 <div class="control-grid">
                     <div class="control-column in">
                         <h4>✓ IN MY CONTROL</h4>
                         <ul>
-                            <li>How I speak to my partner or kids</li>
-                            <li>Creating a simple monthly budget</li>
-                            <li>My physical effort and work ethic</li>
+                            <li>How I choose to speak to my partner or kids</li>
+                            <li>Creating a simple, proactive monthly budget</li>
+                            <li>My physical effort and personal work ethic</li>
                             <li>Making decisions based on my core values</li>
                             <li>When I choose to put my phone down and sleep</li>
                         </ul>
@@ -694,14 +796,14 @@
             <div class="accordion-body">
                 <span class="situation-tag">WHEN TO USE: Feeling Convinced Everything is Ruined or Will Fail</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
-                    When stress tricks you into believing the worst possible outcome is guaranteed, write or map out these four questions:
+                    When high pressure leads you to assume the worst outcome is guaranteed, try mapping out these four reflective questions:
                 </p>
                 <div style="background-color: rgba(255,255,255,0.02); border-radius: 8px; padding: 15px; font-size: 14px;">
                     <ol style="padding-left: 20px;">
                         <li style="margin-bottom: 8px;"><strong>What is the absolute worst-case scenario?</strong> (Acknowledge and face that fear).</li>
-                        <li style="margin-bottom: 8px;"><strong>What is the absolute best-case scenario?</strong> (Allow your brain to see hope).</li>
+                        <li style="margin-bottom: 8px;"><strong>What is the absolute best-case scenario?</strong> (Allow your brain to see potential hope).</li>
                         <li style="margin-bottom: 8px;"><strong>What is the MOST LIKELY scenario?</strong> (Align with reality).</li>
-                        <li style="margin-bottom: 0;"><strong>What is my immediate next action step based on that likely reality?</strong> (Take back control).</li>
+                        <li style="margin-bottom: 0;"><strong>What is my immediate next action step based on that likely reality?</strong> (Focus on action).</li>
                     </ol>
                 </div>
             </div>
@@ -717,7 +819,7 @@
             <div class="accordion-body">
                 <span class="situation-tag">WHEN TO USE: Intense Anger, Urge to Drink, or High-Impulse Urges</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
-                    Prevent impulsive, self-destructive choices or heated fights before they occur.
+                    Build a healthy gap between a strong trigger and your response to manage immediate, high-impulse urges.
                 </p>
                 <div style="background-color: rgba(255,255,255,0.02); border-radius: 8px; padding: 15px; font-size: 14px;">
                     <p style="margin-bottom: 10px;"><strong>S - Stop:</strong> Pause immediately. Freeze in your tracks. Do not text, yell, drink, or act.</p>
@@ -738,7 +840,7 @@
             <div class="accordion-body">
                 <span class="situation-tag">WHEN TO USE: Feeling Suddenly Irritable, Hopeless, or Exhausted</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
-                    Sometimes, dark moods are driven by physical neglect. Stop and check if you are neglecting a basic physical need:
+                    Physical neglect can heavily influence cognitive stress. Take a moment to check if a basic physical need is affecting your mood:
                 </p>
                 <div style="background-color: rgba(255,255,255,0.02); border-radius: 8px; padding: 15px; font-size: 14px;">
                     <p style="margin-bottom: 10px;"><strong>H - Hungry?</strong> Have you eaten clean food in the last 4-6 hours?</p>
@@ -764,14 +866,14 @@
             <div class="accordion-body">
                 <span class="situation-tag">WHEN TO USE: Highly Stressed, Physically Restless, or Muscularly Tense</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">
-                    Mental health is deeply rooted in physical biochemistry. When you stress, your body builds up high concentrations of adrenaline and cortisol (the panic chemicals).
+                    Mental resilience is closely linked to physical physiology. When you experience stress, your body activates its fight-or-flight response, increasing concentrations of adrenaline and cortisol.
                 </p>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
                     <strong>The Hack:</strong> Elevating your heart rate into a cardiovascular zone for just 20 minutes triggers two primary bio-responses:
                 </p>
                 <div style="background-color: rgba(255,255,255,0.02); border-radius: 8px; padding: 15px; font-size: 13px;">
-                    <p style="margin-bottom: 8px;"><strong>1. BDNF Production:</strong> Brain-Derived Neurotrophic Factor is released. Think of it as a miracle grow hormone for your brain—it actively repairs neurons damaged by chronic stress and improves mood stability.</p>
-                    <p style="margin-bottom: 0;"><strong>2. Cortisol Flush:</strong> The physical effort forces your body to metabolize and burn off built-up cortisol, physically relaxing your muscular tension and anxiety symptoms.</p>
+                    <p style="margin-bottom: 8px;"><strong>1. BDNF Production:</strong> Brain-Derived Neurotrophic Factor is released, which acts as a supportive growth factor for brain cells and plays a key role in overall brain health and mood stability.</p>
+                    <p style="margin-bottom: 0;"><strong>2. Physical Tension Release:</strong> Active physical movement gives your body an outlet for physical tension, helping to regulate stress hormones and naturally improve mood.</p>
                 </div>
             </div>
         </div>
@@ -786,14 +888,14 @@
             <div class="accordion-body">
                 <span class="situation-tag">WHEN TO USE: Feeling Chronic Exhaustion, Brain Fog, or High Irritability</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">
-                    Sleep deprivation physically breaks your brain's emotional brakes. Without deep REM sleep, the connection between your logical prefrontal cortex and your emotional amygdala (the alarm center) weakens by over 60%.
+                    When you are sleep deprived, emotional reactions can become stronger, and judgment, attention, and impulse control can get worse.
                 </p>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
                     <strong>The Hack (10-3-2-1-0 Sleep Rule):</strong>
                 </p>
                 <div style="background-color: rgba(255,255,255,0.02); border-radius: 8px; padding: 15px; font-size: 13px;">
                     <p style="margin-bottom: 8px;"><strong>10 Hours Before Bed:</strong> No caffeine (completely flushes from system).</p>
-                    <p style="margin-bottom: 8px;"><strong>3 Hours Before Bed:</strong> No heavy food or alcohol (alcohol ruins deep recovery REM sleep).</p>
+                    <p style="margin-bottom: 8px;"><strong>3 Hours Before Bed:</strong> No heavy food or alcohol (while alcohol may make you sleepy initially, alcohol disrupts normal sleep quality and REM recovery sleep later in the night).</p>
                     <p style="margin-bottom: 8px;"><strong>2 Hours Before Bed:</strong> No work or intense mental planning (allows heart rate to settle).</p>
                     <p style="margin-bottom: 8px;"><strong>1 Hour Before Bed:</strong> No blue light screens (stops phone light from suppressing melatonin).</p>
                     <p style="margin-bottom: 0;"><strong>0 Times:</strong> The number of times you should hit snooze in the morning.</p>
@@ -811,22 +913,40 @@
             <div class="accordion-body">
                 <span class="situation-tag">WHEN TO USE: Sudden Chest Tightness, Rapid Heartbeat, or Low Energy</span>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">
-                    Even minor dehydration (as low as 1.5% water volume loss) physically mimics the symptoms of generalized anxiety disorder and panic attacks.
+                    If you haven't had water in a while, basic physical needs can make stress feel worse. Check the basics before assuming everything you're feeling is purely emotional.
                 </p>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">
-                    When your body is dehydrated, your blood volume drops. This forces your heart to beat faster and your respiration rate to increase to move oxygen. Your brain registers this fast heartbeat and heavy chest as *panic*, triggering an emotional spiral when nothing is actually wrong.
+                    Dehydration can cause physical symptoms like an elevated heart rate, which your body can easily misinterpret as emotional anxiety, magnifying your stress.
                 </p>
                 <div style="background-color: rgba(255,255,255,0.02); border-radius: 8px; padding: 12px; font-size: 13px; font-weight: 700; color: var(--alert-gold); text-align: center;">
-                    ACTION HACK: Before making any big emotional decisions or acting on a panic attack, drink 16oz of ice-cold water and wait 10 minutes.
+                    PRACTICAL STEP: If you feel sudden physical tension or stress, try drinking cool water and resting for 10 minutes to see if physical symptoms ease.
                 </div>
             </div>
         </div>
     </div>
 
     <!-- ==========================================
+         SECTION: WHEN COPING SKILLS AREN'T ENOUGH
+         ========================================== -->
+    <div class="support-check-box">
+        <h3>When Coping Skills Aren't Enough</h3>
+        <p>Coping skills and physical hacks are excellent tools for managing daily tension, but sometimes the right next step is connecting with another human being. Consider reaching out to our directory resources if you notice:</p>
+        <ul>
+            <li>Your stress or physical symptoms are not easing after practicing these tools</li>
+            <li>The same overwhelming challenges keep returning</li>
+            <li>Substance use is becoming a primary way of coping with stress</li>
+            <li>Managing your daily routine, work, or relationships is becoming harder</li>
+            <li>You simply want an objective, confidential person to talk to</li>
+        </ul>
+        <div style="text-align: center; margin-top: 15px;">
+            <a href="#help-directory" class="btn btn-gold" style="width: auto; padding: 10px 20px;">Go Direct to the Help Directory</a>
+        </div>
+    </div>
+
+    <!-- ==========================================
          SECTION 3: MSARNG HELPLINE DIRECTORY
          ========================================== -->
-    <h2 class="section-title">Confidential Help Directory</h2>
+    <h2 class="section-title" id="help-directory">Confidential Help Directory</h2>
 
     <!-- Collapsible MSNG Support Accordion -->
     <div class="accordion-item">
@@ -1201,7 +1321,7 @@
     <!-- ==========================================
          SECTION 4: PEER INTERVENTION & BUDDY AID
          ========================================== -->
-    <h2 class="section-title">Help a Buddy (ACE Framework)</h2>
+    <h2 class="section-title" id="help-buddy">Help a Buddy (ACE Framework)</h2>
 
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
@@ -1215,7 +1335,7 @@
                     When you notice shifts in mood, withdrawal, or talk of suicide in a peer, operationalize the direct ACE intervention guidelines:
                 </p>
                 <div style="background-color: rgba(255,255,255,0.02); border-radius: 8px; padding: 15px; font-size: 13px;">
-                    <p style="margin-bottom: 10px;"><strong>1. ASK:</strong> Ask directly: *"Are you thinking about killing yourself?"* Ask calmly and with clear attention. Saying the word *suicide* does not plant the idea; it breaks isolation and builds a line of survival.</p>
+                    <p style="margin-bottom: 10px;"><strong>1. ASK:</strong> Ask directly: "Are you thinking about killing yourself?" Ask calmly and with clear attention. Saying the word suicide does not plant the idea; it helps break isolation and opens the door for professional support.</p>
                     <p style="margin-bottom: 10px;"><strong>2. CARE:</strong> Listen without judgment. Do not lecture, give advice, or tell them to "man up." Let them talk. Validate their feelings of pain and isolate dangerous materials (weapons, medications).</p>
                     <p style="margin-bottom: 0;"><strong>3. ESCORT:</strong> Never leave them alone. Escort them directly to a safe hand-off point: a Chaplain, a Behavioral Health Officer, the emergency room, or call 988 immediately. Stay alongside until professional care is confirmed.</p>
                 </div>
@@ -1237,7 +1357,7 @@
             <span>Zero Logins. Zero Tracking. 100% Anonymous.</span>
         </div>
         <p class="footer-note">MSARNG Suicide & Substance Abuse Prevention Initiative</p>
-        <p class="footer-note" style="margin-top: 5px; font-size: 10px; color: var(--border-color);">v2.7.0 - Production Build</p>
+        <p class="footer-note" style="margin-top: 5px; font-size: 10px; color: var(--border-color);">Last Reviewed: March 2026 | v2.8.0 - Production Build</p>
     </footer>
 
 </div>
